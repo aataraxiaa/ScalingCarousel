@@ -1,0 +1,6 @@
+framework module Pods_ScalingCarouselView_Example {
+  umbrella header "Pods-ScalingCarouselView_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

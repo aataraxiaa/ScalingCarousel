@@ -1,0 +1,43 @@
+PODS:
+  - FBSnapshotTestCase (2.1.2):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.2)
+  - FBSnapshotTestCase/Core (2.1.2)
+  - FBSnapshotTestCase/SwiftSupport (2.1.2):
+    - FBSnapshotTestCase/Core
+  - Nimble (3.2.0)
+  - Nimble-Snapshots (4.2.0):
+    - FBSnapshotTestCase (~> 2.0)
+    - Nimble
+    - Quick
+  - Quick (0.10.0)
+  - ScalingCarouselView (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase (from `https://github.com/facebook/ios-snapshot-test-case`, branch `swift-beta-3`)
+  - Nimble (~> 3.0)
+  - Nimble-Snapshots
+  - Quick (~> 0.8)
+  - ScalingCarouselView (from `../`)
+
+EXTERNAL SOURCES:
+  FBSnapshotTestCase:
+    :branch: swift-beta-3
+    :git: https://github.com/facebook/ios-snapshot-test-case
+  ScalingCarouselView:
+    :path: "../"
+
+CHECKOUT OPTIONS:
+  FBSnapshotTestCase:
+    :commit: a9ea64f015a081a63e88c1a37784249a616f9dcc
+    :git: https://github.com/facebook/ios-snapshot-test-case
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 918c55861356ee83aee7843d759f55a18ff6982b
+  Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
+  Nimble-Snapshots: 4826e3ee211d2c7af27645e35d68b9e9917882e7
+  Quick: 5d290df1c69d5ee2f0729956dcf0fd9a30447eaa
+  ScalingCarouselView: a2c4f5fad11ef7400ae89c4d3258f78af71afead
+
+PODFILE CHECKSUM: 4a20afa03aa4a06b6078a6e7bb6cce3916dab097
+
+COCOAPODS: 1.1.0.rc.2

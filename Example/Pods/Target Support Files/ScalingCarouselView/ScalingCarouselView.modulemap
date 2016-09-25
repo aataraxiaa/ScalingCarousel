@@ -1,0 +1,6 @@
+framework module ScalingCarouselView {
+  umbrella header "ScalingCarouselView-umbrella.h"
+
+  export *
+  module * { export * }
+}
