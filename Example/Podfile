@@ -6,8 +6,8 @@ target 'ScalingCarouselView_Example' do
   target 'ScalingCarouselView_Tests' do
     inherit! :search_paths
 
-    pod 'Quick', '~> 0.8'
-    pod 'Nimble', '~> 3.0'
+    pod 'Quick'
+    pod 'Nimble'
     pod 'FBSnapshotTestCase', :git => 'https://github.com/facebook/ios-snapshot-test-case', :branch => 'swift-beta-3'
     pod 'Nimble-Snapshots'
   end

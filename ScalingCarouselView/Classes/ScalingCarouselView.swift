@@ -1,11 +1,12 @@
 //
-//  ScalingCarouselView.swift
-//  Bikey
+//  Created by Pete Smith
+//  http://www.petethedeveloper.com
 //
-//  Created by Pete Smith on 17/09/2016.
-//  Copyright © 2016 Pete Smith. All rights reserved.
 //
-
+//  License
+//  Copyright © 2016-present Pete Smith
+//  Released under an MIT license: http://opensource.org/licenses/MIT
+//
 import UIKit
 
 
@@ -16,13 +17,13 @@ import UIKit
  are scaled as the collection view scrolls.
  
 */
-class ScalingCarouselView: UICollectionView {
+public class ScalingCarouselView: UICollectionView {
     
     // MARK: - Properties (Public)
     
     
     /// Inset of the main, central cell
-    @IBInspectable var inset: CGFloat = 0.0 {
+    @IBInspectable public var inset: CGFloat = 0.0 {
         didSet {
             collectionViewLayout = ScalingCarouselLayout(withCarouselInset: inset)
         }
@@ -30,7 +31,7 @@ class ScalingCarouselView: UICollectionView {
     
     
     /// Override of the collection view content size to add an observer
-    override var contentSize: CGSize {
+    public override var contentSize: CGSize {
         didSet {
             invisibleScrollView.contentSize = contentSize
         }
@@ -45,7 +46,7 @@ class ScalingCarouselView: UICollectionView {
         configure()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         configure()
     }
@@ -53,7 +54,7 @@ class ScalingCarouselView: UICollectionView {
     
     // MARK: - Overrides
     
-    override func updateConstraints() {
+    public override func updateConstraints() {
         invisibleScrollView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
         invisibleScrollView.widthAnchor.constraint(equalTo: widthAnchor, constant: -(2 * inset)).isActive = true
         invisibleScrollView.leftAnchor.constraint(equalTo: leftAnchor, constant: inset).isActive = true
@@ -61,11 +62,11 @@ class ScalingCarouselView: UICollectionView {
         super.updateConstraints()
     }
     
-    override func scrollRectToVisible(_ rect: CGRect, animated: Bool) {
+    public override func scrollRectToVisible(_ rect: CGRect, animated: Bool) {
         invisibleScrollView.setContentOffset(rect.origin, animated: false)
     }
     
-    override func scrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionViewScrollPosition, animated: Bool) {
+    public override func scrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionViewScrollPosition, animated: Bool) {
         super.scrollToItem(at: indexPath, at: scrollPosition, animated: animated)
         
         let originX = (CGFloat(indexPath.item) * (frame.size.width - (inset * 2)))
@@ -91,14 +92,13 @@ class ScalingCarouselView: UICollectionView {
     }
 }
 
-
 /*
  Scroll view delegate extension used to respond to scrolling of the invisible scrollView
 */
 private typealias InvisibleScrollDelegate = ScalingCarouselView
 extension InvisibleScrollDelegate: UIScrollViewDelegate {
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         delegate?.scrollViewDidScroll?(scrollView)
         
@@ -111,7 +111,7 @@ extension InvisibleScrollDelegate: UIScrollViewDelegate {
         }
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         delegate?.scrollViewDidEndDecelerating?(scrollView)
     }
     

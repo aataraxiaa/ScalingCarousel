@@ -1,11 +1,12 @@
 //
-//  AppDelegate.swift
-//  ScalingCarouselView
+//  Created by Pete Smith
+//  http://www.petethedeveloper.com
 //
-//  Created by Pete Smith on 09/21/2016.
-//  Copyright (c) 2016 Pete Smith. All rights reserved.
 //
-
+//  License
+//  Copyright © 2016-present Pete Smith
+//  Released under an MIT license: http://opensource.org/licenses/MIT
+//
 import UIKit
 
 @UIApplicationMain

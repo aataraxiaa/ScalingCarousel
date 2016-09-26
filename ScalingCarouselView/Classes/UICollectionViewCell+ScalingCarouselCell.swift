@@ -1,9 +1,11 @@
 //
-//  UICollectionViewCell+ScalingCarouselCell.swift
-//  Bikey
+//  Created by Pete Smith
+//  http://www.petethedeveloper.com
 //
-//  Created by Pete Smith on 17/09/2016.
-//  Copyright © 2016 Pete Smith. All rights reserved.
+//
+//  License
+//  Copyright © 2016-present Pete Smith
+//  Released under an MIT license: http://opensource.org/licenses/MIT
 //
 
 import UIKit
@@ -19,7 +21,7 @@ import UIKit
  scale when scrolled.
 */
 typealias ScalingCarouselCell = UICollectionViewCell
-extension ScalingCarouselCell {
+public extension ScalingCarouselCell {
     
     private struct InternalConstants {
         static let alphaSmallestValue: CGFloat = 0.85
@@ -31,7 +33,7 @@ extension ScalingCarouselCell {
     /// - parameter carouselInset: The inset of the related SPBCarousel view
     /// - parameter scaleMinimum:  The minimun % a cell should scale to, 
     ///             expressed as a value between 0.0 and 1.0
-    func scale(withCarouselInset carouselInset: CGFloat, scaleMinimum: CGFloat = 0.9) {
+    public func scale(withCarouselInset carouselInset: CGFloat, scaleMinimum: CGFloat = 0.9) {
         let originX = convert(contentView.frame, to: nil).origin.x
         
         let originXActual = originX - carouselInset
