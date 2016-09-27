@@ -11,6 +11,8 @@
 import UIKit
 import ScalingCarouselView
 
+class Cell: ScalingCarouselCell {}
+
 class ViewController: UIViewController {
 
     // MARK: - IBOutlets
@@ -24,6 +26,16 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+
+typealias CarouselDelegate = ViewController
+extension CarouselDelegate: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = cell as? ScalingCarouselCell else { return }
+        
+        cell.scaleIfRequired(withCarouselInset: 60)
     }
 }
 
@@ -42,4 +54,3 @@ extension CarouselDatasource: UICollectionViewDataSource {
         return cell
     }
 }
-

@@ -62,7 +62,7 @@
 		7070E1BDFFD9D6D40C6ED465BD5C58CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FF979DB93FFC369BEC3D6B3C8B9C7A /* Foundation.framework */; };
 		730FE65CF9B832FC01AB3F545A8CAF73 /* QuickSelectedTestSuiteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78B6ED294864387BED602BC3BF5A3B3 /* QuickSelectedTestSuiteBuilder.swift */; };
 		73B96724E9D2B03677BA3C2D24601D64 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6EE56D4DC2461C7BBF0AE378723875 /* XCTest.framework */; };
-		748F4530B5B31A18F092B956FBAE8B7F /* UICollectionViewCell+ScalingCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BAE514ABFDC457A9E486986662774D /* UICollectionViewCell+ScalingCarouselCell.swift */; };
+		748F4530B5B31A18F092B956FBAE8B7F /* ScalingCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BAE514ABFDC457A9E486986662774D /* ScalingCarouselCell.swift */; };
 		74C0C955A968122899AB6E0DA79D3FA0 /* NMBObjCMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A88D7384F1D92C3CD8EBFFC04C29E /* NMBObjCMatcher.swift */; };
 		78C0EDC656B9152FB603EC259D241DA5 /* FBSnapshotTestCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9823197EA5904A9150FB0AD8B09841E6 /* FBSnapshotTestCase.framework */; };
 		7A8FBA97FC9F2CD067272C40969603F2 /* Pods-ScalingCarouselView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 22146E1B8E1FB6544639F9079CBACE05 /* Pods-ScalingCarouselView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -345,7 +345,7 @@
 		CFED69C9F357D4065EBD81E2F1039DB9 /* BeNil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeNil.swift; path = Sources/Nimble/Matchers/BeNil.swift; sourceTree = "<group>"; };
 		D003044674A8D90C2E0247D4B38FBCD5 /* BeGreaterThanOrEqualTo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeGreaterThanOrEqualTo.swift; path = Sources/Nimble/Matchers/BeGreaterThanOrEqualTo.swift; sourceTree = "<group>"; };
 		D49CEB21B0ECB50D4FE436B739A221A3 /* Pods-ScalingCarouselView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ScalingCarouselView_Example.modulemap"; sourceTree = "<group>"; };
-		D4BAE514ABFDC457A9E486986662774D /* UICollectionViewCell+ScalingCarouselCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+ScalingCarouselCell.swift"; sourceTree = "<group>"; };
+		D4BAE514ABFDC457A9E486986662774D /* ScalingCarouselCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScalingCarouselCell.swift; sourceTree = "<group>"; };
 		D5621E9769EF4CE603A8AD5464682EA6 /* ScalingCarouselView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ScalingCarouselView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6559B0A2178C924FCB7881428C78787 /* ExampleMetadata.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExampleMetadata.swift; path = Sources/Quick/ExampleMetadata.swift; sourceTree = "<group>"; };
 		D790832876C15B1E5DE24939E26714FA /* Nimble-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Nimble-prefix.pch"; sourceTree = "<group>"; };
@@ -795,7 +795,7 @@
 			children = (
 				A31871CBEF3E13E27507A439577A0465 /* ScalingCarouselLayout.swift */,
 				C2EB44810BF4C7EA042811866AF27CC6 /* ScalingCarouselView.swift */,
-				D4BAE514ABFDC457A9E486986662774D /* UICollectionViewCell+ScalingCarouselCell.swift */,
+				D4BAE514ABFDC457A9E486986662774D /* ScalingCarouselCell.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1128,7 +1128,7 @@
 				C9FEBD45644670D20236ABD044EFD1F2 /* ScalingCarouselLayout.swift in Sources */,
 				1412BA1C5E085BFAA13439EAC892332A /* ScalingCarouselView-dummy.m in Sources */,
 				C4D49FFDFCA6C3D308B063D9DCEFBAFD /* ScalingCarouselView.swift in Sources */,
-				748F4530B5B31A18F092B956FBAE8B7F /* UICollectionViewCell+ScalingCarouselCell.swift in Sources */,
+				748F4530B5B31A18F092B956FBAE8B7F /* ScalingCarouselCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

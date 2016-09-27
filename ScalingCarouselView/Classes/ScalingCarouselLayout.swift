@@ -15,7 +15,7 @@ import UIKit
  provide a carousel-style collection view.
 */
 public class ScalingCarouselLayout: UICollectionViewFlowLayout {
-    
+open
     var inset: CGFloat = 0.0
     
     
@@ -29,7 +29,7 @@ public class ScalingCarouselLayout: UICollectionViewFlowLayout {
         self.inset = inset
     }
     
-    override public func prepare() {
+    override open func prepare() {
         guard let collectionViewSize = collectionView?.frame.size else { return }
         
         itemSize = collectionViewSize

@@ -17,7 +17,7 @@ import UIKit
  are scaled as the collection view scrolls.
  
 */
-public class ScalingCarouselView: UICollectionView {
+open class ScalingCarouselView: UICollectionView {
     
     // MARK: - Properties (Public)
     
@@ -31,7 +31,7 @@ public class ScalingCarouselView: UICollectionView {
     
     
     /// Override of the collection view content size to add an observer
-    public override var contentSize: CGSize {
+    open override var contentSize: CGSize {
         didSet {
             invisibleScrollView.contentSize = contentSize
         }
@@ -54,7 +54,7 @@ public class ScalingCarouselView: UICollectionView {
     
     // MARK: - Overrides
     
-    public override func updateConstraints() {
+    open override func updateConstraints() {
         invisibleScrollView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
         invisibleScrollView.widthAnchor.constraint(equalTo: widthAnchor, constant: -(2 * inset)).isActive = true
         invisibleScrollView.leftAnchor.constraint(equalTo: leftAnchor, constant: inset).isActive = true
@@ -62,11 +62,11 @@ public class ScalingCarouselView: UICollectionView {
         super.updateConstraints()
     }
     
-    public override func scrollRectToVisible(_ rect: CGRect, animated: Bool) {
+    open override func scrollRectToVisible(_ rect: CGRect, animated: Bool) {
         invisibleScrollView.setContentOffset(rect.origin, animated: false)
     }
     
-    public override func scrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionViewScrollPosition, animated: Bool) {
+    open override func scrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionViewScrollPosition, animated: Bool) {
         super.scrollToItem(at: indexPath, at: scrollPosition, animated: animated)
         
         let originX = (CGFloat(indexPath.item) * (frame.size.width - (inset * 2)))
@@ -104,6 +104,8 @@ extension InvisibleScrollDelegate: UIScrollViewDelegate {
         
         // Only move the collection view by an amount based on the invisible scrollview
         updateOffSet()
+        
+        guard let visibleCells = visibleCells as? [ScalingCarouselCell] else { return }
         
         // Scale Visible cells
         for cell in visibleCells {
