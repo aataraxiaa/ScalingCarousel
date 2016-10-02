@@ -20,7 +20,7 @@ import UIKit
  */
 open class ScalingCarouselCell: UICollectionViewCell {
     
-    @IBOutlet weak var mainView: UIView!
+    @IBOutlet public weak var mainView: UIView!
     
     public var hasBeenScaled = false
     

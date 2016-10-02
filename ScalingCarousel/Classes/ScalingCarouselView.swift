@@ -21,7 +21,7 @@ open class ScalingCarouselView: UICollectionView {
     // MARK: - Properties (Public)
     
     /// Inset of the main, central cell
-    @IBInspectable var inset: CGFloat = 0.0 {
+    @IBInspectable public var inset: CGFloat = 0.0 {
         didSet {
             collectionViewLayout = ScalingCarouselLayout(withCarouselInset: inset)
         }
