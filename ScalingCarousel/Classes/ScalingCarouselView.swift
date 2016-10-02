@@ -9,29 +9,26 @@
 //
 import UIKit
 
-
 /*
- Scaling carousel view is a subclass of UICollectionView.
- It is intended to be used to to carousel through cells which don't 
+ ScalingCarouselView is a subclass of UICollectionView which
+ is intended to be used to carousel through cells which don't
  extend to the edges of a screen. The previous and subsequent cells
- are scaled as the collection view scrolls.
+ are scaled as the carousel scrolls.
  
-*/
+ */
 open class ScalingCarouselView: UICollectionView {
     
     // MARK: - Properties (Public)
     
-    
     /// Inset of the main, central cell
-    @IBInspectable public var inset: CGFloat = 0.0 {
+    @IBInspectable var inset: CGFloat = 0.0 {
         didSet {
             collectionViewLayout = ScalingCarouselLayout(withCarouselInset: inset)
         }
     }
     
-    
     /// Override of the collection view content size to add an observer
-    open override var contentSize: CGSize {
+    override open var contentSize: CGSize {
         didSet {
             invisibleScrollView.contentSize = contentSize
         }
@@ -39,7 +36,7 @@ open class ScalingCarouselView: UICollectionView {
     
     // MARK: - Properties (Private)
     fileprivate var invisibleScrollView: UIScrollView!
-
+    
     // MARK: - Lifecycle
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -54,19 +51,19 @@ open class ScalingCarouselView: UICollectionView {
     
     // MARK: - Overrides
     
-    open override func updateConstraints() {
+    override open func updateConstraints() {
+        super.updateConstraints()
+        
         invisibleScrollView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
         invisibleScrollView.widthAnchor.constraint(equalTo: widthAnchor, constant: -(2 * inset)).isActive = true
         invisibleScrollView.leftAnchor.constraint(equalTo: leftAnchor, constant: inset).isActive = true
-        
-        super.updateConstraints()
     }
     
-    open override func scrollRectToVisible(_ rect: CGRect, animated: Bool) {
+    override open func scrollRectToVisible(_ rect: CGRect, animated: Bool) {
         invisibleScrollView.setContentOffset(rect.origin, animated: false)
     }
     
-    open override func scrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionViewScrollPosition, animated: Bool) {
+    override open func scrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionViewScrollPosition, animated: Bool) {
         super.scrollToItem(at: indexPath, at: scrollPosition, animated: animated)
         
         let originX = (CGFloat(indexPath.item) * (frame.size.width - (inset * 2)))
@@ -92,28 +89,29 @@ open class ScalingCarouselView: UICollectionView {
     }
 }
 
+
 /*
  Scroll view delegate extension used to respond to scrolling of the invisible scrollView
-*/
+ */
 private typealias InvisibleScrollDelegate = ScalingCarouselView
 extension InvisibleScrollDelegate: UIScrollViewDelegate {
     
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         delegate?.scrollViewDidScroll?(scrollView)
         
         // Only move the collection view by an amount based on the invisible scrollview
         updateOffSet()
         
-        guard let visibleCells = visibleCells as? [ScalingCarouselCell] else { return }
-        
         // Scale Visible cells
         for cell in visibleCells {
-            cell.scale(withCarouselInset: inset)
+            if let infoCardCell = cell as? ScalingCarouselCell {
+                infoCardCell.scale(withCarouselInset: inset)
+            }
         }
     }
     
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         delegate?.scrollViewDidEndDecelerating?(scrollView)
     }
     

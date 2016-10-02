@@ -20,7 +20,9 @@ import UIKit
  */
 open class ScalingCarouselCell: UICollectionViewCell {
     
-    private var hasBeenScaled = false
+    @IBOutlet weak var mainView: UIView!
+    
+    public var hasBeenScaled = false
     
     private struct InternalConstants {
         static let alphaSmallestValue: CGFloat = 0.85
@@ -33,11 +35,13 @@ open class ScalingCarouselCell: UICollectionViewCell {
     /// - parameter scaleMinimum:  The minimun % a cell should scale to,
     ///             expressed as a value between 0.0 and 1.0
     open func scale(withCarouselInset carouselInset: CGFloat, scaleMinimum: CGFloat = 0.9) {
-        let originX = convert(contentView.frame, to: nil).origin.x
+        guard let mainView = mainView else { return }
+        
+        let originX = convert(mainView.frame, to: nil).origin.x
         
         let originXActual = originX - carouselInset
         
-        let width = contentView.frame.size.width
+        let width = mainView.frame.size.width
         
         let scaleCalculator = fabs(width - fabs(originXActual))
         
@@ -46,20 +50,17 @@ open class ScalingCarouselCell: UICollectionViewCell {
         let scaleValue = scaleMinimum + (percentageScale/InternalConstants.scaleDivisor)
         let alphaValue = InternalConstants.alphaSmallestValue + (percentageScale/InternalConstants.scaleDivisor)
         
-        transform = CGAffineTransform.identity.scaledBy(x: scaleValue, y: scaleValue)
-        alpha = alphaValue
+        mainView.transform = CGAffineTransform.identity.scaledBy(x: scaleValue, y: scaleValue)
+        mainView.alpha = alphaValue
+        mainView.layer.cornerRadius = 20
         
-        setNeedsLayout()
-    }
-    
-    open func scaleIfRequired(withCarouselInset carouselInset: CGFloat, scaleMinimum: CGFloat = 0.9) {
-        guard !hasBeenScaled else { return }
-        
-        scale(withCarouselInset: carouselInset, scaleMinimum: scaleMinimum)
+        setNeedsDisplay()
     }
     
     override open func prepareForReuse() {
         super.prepareForReuse()
+        mainView.transform = CGAffineTransform.identity
+        mainView.alpha = 1.0
         hasBeenScaled = true
     }
 }
