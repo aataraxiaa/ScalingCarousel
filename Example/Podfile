@@ -1,9 +1,9 @@
 use_frameworks!
 
-target 'ScalingCarouselView_Example' do
-  pod 'ScalingCarouselView', :path => '../'
+target 'ScalingCarousel_Example' do
+  pod 'ScalingCarousel', :path => '../'
 
-  target 'ScalingCarouselView_Tests' do
+  target 'ScalingCarousel_Tests' do
     inherit! :search_paths
 
     pod 'Quick'

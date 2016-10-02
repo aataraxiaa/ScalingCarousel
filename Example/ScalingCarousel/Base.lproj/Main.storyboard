@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A320" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="ScalingCarousel_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YWL-ry-gax" customClass="ScalingCarouselView" customModule="ScalingCarousel">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="VzQ-nk-7vh"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OOs-68-0Yf">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="dmg-ry-C6s" customClass="Cell" customModule="ScalingCarousel_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5pb-Q3-T2t">
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="5pb-Q3-T2t" firstAttribute="height" secondItem="dmg-ry-C6s" secondAttribute="height" id="1qE-wI-4cn"/>
+                                            <constraint firstItem="5pb-Q3-T2t" firstAttribute="centerY" secondItem="dmg-ry-C6s" secondAttribute="centerY" id="5H8-D3-JeM"/>
+                                            <constraint firstItem="5pb-Q3-T2t" firstAttribute="width" secondItem="dmg-ry-C6s" secondAttribute="width" id="7wF-W6-7pn"/>
+                                            <constraint firstItem="5pb-Q3-T2t" firstAttribute="centerX" secondItem="dmg-ry-C6s" secondAttribute="centerX" id="DtO-X0-mVU"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="mainView" destination="5pb-Q3-T2t" id="gER-U9-Kly"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="nwV-hx-daZ"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="CHb-mx-MAd"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="YWL-ry-gax" secondAttribute="trailing" id="0lO-qt-KuH"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="YWL-ry-gax" secondAttribute="bottom" constant="20" id="J7B-dZ-6H6"/>
+                            <constraint firstItem="YWL-ry-gax" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Zpk-J4-45p"/>
+                            <constraint firstItem="YWL-ry-gax" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="mRp-T1-DyW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="carousel" destination="YWL-ry-gax" id="Tyo-4d-GPK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

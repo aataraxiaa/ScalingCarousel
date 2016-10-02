@@ -2,7 +2,7 @@
 
 import Quick
 import Nimble
-import ScalingCarouselView
+import ScalingCarousel
 
 class TableOfContentsSpec: QuickSpec {
     override func spec() {
