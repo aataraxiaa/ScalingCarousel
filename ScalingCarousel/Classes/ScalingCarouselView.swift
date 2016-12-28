@@ -14,7 +14,6 @@ import UIKit
  is intended to be used to carousel through cells which don't
  extend to the edges of a screen. The previous and subsequent cells
  are scaled as the carousel scrolls.
- 
  */
 open class ScalingCarouselView: UICollectionView {
     
@@ -38,6 +37,7 @@ open class ScalingCarouselView: UICollectionView {
     fileprivate var invisibleScrollView: UIScrollView!
     
     // MARK: - Lifecycle
+    
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         configure()

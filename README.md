@@ -5,11 +5,20 @@
 [![License](https://img.shields.io/cocoapods/l/ScalingCarousel.svg?style=flat)](http://cocoapods.org/pods/ScalingCarousel)
 [![Platform](https://img.shields.io/cocoapods/p/ScalingCarousel.svg?style=flat)](http://cocoapods.org/pods/ScalingCarousel)
 
+ScalingCarousel provides a simple carousel-style collection view.
+It takes care of cell presentation, scaling each cell as the collection view is scrolled.
+
+It is used in Bikey to present bike station information.
+
+## Usage
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+
+iOS 9
 
 ## Installation
 
