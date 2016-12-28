@@ -1,0 +1,22 @@
+{
+  "name": "ScalingCarousel",
+  "version": "0.1.0",
+  "summary": "A short description of ScalingCarousel.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/ScalingCarousel",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Pete Smith": "peadar81@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/ScalingCarousel.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ScalingCarousel/Classes/**/*"
+}

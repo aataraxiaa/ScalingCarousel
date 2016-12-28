@@ -1,0 +1,16 @@
+PODS:
+  - ScalingCarousel (0.1.0)
+
+DEPENDENCIES:
+  - ScalingCarousel (from `../`)
+
+EXTERNAL SOURCES:
+  ScalingCarousel:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ScalingCarousel: 9ccb50bc287484fb5ca64ab50e0a4938521a93fb
+
+PODFILE CHECKSUM: aaf53f72e837000e0cec9b542eb92f29695d1812
+
+COCOAPODS: 1.1.1

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="ScalingCarousel_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mq8-SH-Mx8" customClass="ScalingCarouselView" customModule="ScalingCarousel">
+                                <rect key="frame" x="0.0" y="402" width="375" height="250"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="9nX-Ku-j46"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BKc-yN-cAB">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="zd6-fE-JFf" customClass="Cell" customModule="ScalingCarousel_Example" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RJs-7r-dhV">
+                                                    <rect key="frame" x="-0.5" y="0.0" width="50" height="50"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="RJs-7r-dhV" firstAttribute="height" secondItem="zd6-fE-JFf" secondAttribute="height" id="4gq-WD-TjS"/>
+                                            <constraint firstItem="RJs-7r-dhV" firstAttribute="width" secondItem="zd6-fE-JFf" secondAttribute="width" id="MpD-LA-Wcy"/>
+                                            <constraint firstItem="RJs-7r-dhV" firstAttribute="centerY" secondItem="zd6-fE-JFf" secondAttribute="centerY" id="kbG-X1-xqW"/>
+                                            <constraint firstItem="RJs-7r-dhV" firstAttribute="centerX" secondItem="zd6-fE-JFf" secondAttribute="centerX" id="obR-HU-NYt"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="mainView" destination="RJs-7r-dhV" id="ACN-bg-Nqo"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                        <real key="value" value="44"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="Os4-Ce-rii"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="2CT-Z1-hjX"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAz-De-GJ8">
+                                <rect key="frame" x="150" y="105" width="74" height="30"/>
+                                <state key="normal" title="Show/Hide"/>
+                                <connections>
+                                    <action selector="showHideButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Jsy-vc-cWp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Mq8-SH-Mx8" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="4Ux-ib-2uZ"/>
+                            <constraint firstItem="KAz-De-GJ8" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="85" id="Ffh-uk-Qnl"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Mq8-SH-Mx8" secondAttribute="bottom" constant="15" id="Kee-s5-jSC"/>
+                            <constraint firstItem="KAz-De-GJ8" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="M5E-lE-5Pp"/>
+                            <constraint firstItem="Mq8-SH-Mx8" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="NPp-qY-rgM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="carouselBottomConstraint" destination="Kee-s5-jSC" id="HnZ-jP-gpN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

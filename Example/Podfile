@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ScalingCarousel_Example' do
+  pod 'ScalingCarousel', :path => '../'
+
+  target 'ScalingCarousel_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
