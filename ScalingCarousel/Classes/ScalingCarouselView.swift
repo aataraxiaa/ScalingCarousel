@@ -72,7 +72,7 @@ open class ScalingCarouselView: UICollectionView {
     }
     
     override open func scrollRectToVisible(_ rect: CGRect, animated: Bool) {
-        invisibleScrollView.setContentOffset(rect.origin, animated: false)
+        invisibleScrollView.setContentOffset(rect.origin, animated: animated)
     }
     
     override open func scrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionViewScrollPosition, animated: Bool) {
@@ -80,7 +80,7 @@ open class ScalingCarouselView: UICollectionView {
         
         let originX = (CGFloat(indexPath.item) * (frame.size.width - (inset * 2)))
         let rect = CGRect(x: originX, y: 0, width: frame.size.width - (inset * 2), height: frame.height)
-        scrollRectToVisible(rect, animated: false)
+        scrollRectToVisible(rect, animated: animated)
     }
     
     // MARK: - Configuration
