@@ -27,7 +27,7 @@ class StoryboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        carouselBottomConstraint.constant = Constants.carouselHideConstant
+        carouselBottomConstraint.constant = Constants.carouselHideConstant
     }
     
     // MARK: - Button Actions

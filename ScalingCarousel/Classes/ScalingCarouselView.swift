@@ -66,6 +66,7 @@ open class ScalingCarouselView: UICollectionView {
         invisibleScrollView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
         invisibleScrollView.widthAnchor.constraint(equalTo: widthAnchor, constant: -(2 * inset)).isActive = true
         invisibleScrollView.leftAnchor.constraint(equalTo: leftAnchor, constant: inset).isActive = true
+        invisibleScrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         
         super.updateConstraints()
     }
@@ -91,9 +92,11 @@ open class ScalingCarouselView: UICollectionView {
         invisibleScrollView.translatesAutoresizingMaskIntoConstraints = false
         invisibleScrollView.isPagingEnabled = true
         invisibleScrollView.showsHorizontalScrollIndicator = false
+        
         // Turn off interaction on the overlay so touch events fall through to the main scroll view
         invisibleScrollView.isUserInteractionEnabled = false
         invisibleScrollView.delegate = self
+        
         // Add the disabled invisible scrollviews pan gesture recognizer to our collection view
         addGestureRecognizer(invisibleScrollView.panGestureRecognizer)
         addSubview(invisibleScrollView)
