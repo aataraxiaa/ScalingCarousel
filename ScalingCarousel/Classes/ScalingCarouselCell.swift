@@ -54,43 +54,19 @@ open class ScalingCarouselCell: UICollectionViewCell {
     open func scale(withCarouselInset carouselInset: CGFloat, scaleMinimum: CGFloat = 0.9) {
         guard let superview = superview, let mainView = mainView else { return }
         
-        print("\n******")
-        
-        print("frame: \(frame)")
-        print("bounds: \(bounds)")
-        print("mainView.frame: \(mainView.frame)")
-        print("mainView.bounds: \(mainView.bounds)")
-        
         let originX = superview.convert(frame, to: nil).origin.x
-        
-        print("originX: \(originX))")
-        
         let originXActual = originX - carouselInset
-        
-        print("originXActual: \(originXActual))")
         
         let width = frame.size.width
         
-        print("frame width: \(width)")
-        print("mainView frame width: \(mainView.frame.size.width)")
-        
         let scaleCalculator = fabs(width - fabs(originXActual))
-        
-        print("scaleCalculator: \(scaleCalculator)")
-        
         let percentageScale = (scaleCalculator/width)
-        
-        print("percentageScale: \(percentageScale)")
         
         let scaleValue = scaleMinimum + (percentageScale/InternalConstants.scaleDivisor)
         let alphaValue = InternalConstants.alphaSmallestValue + (percentageScale/InternalConstants.scaleDivisor)
         
-        print("scaleValue: \(scaleValue))")
-        
         mainView.transform = CGAffineTransform.identity.scaledBy(x: scaleValue, y: scaleValue)
         mainView.alpha = alphaValue
         mainView.layer.cornerRadius = 20
-        
-        print("******")
     }
 }
