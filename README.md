@@ -22,13 +22,26 @@ ScalingCarousel can be added via both storyboard/xib and code, as described belo
 
 3. Set your UIViewController as the collection view datasource and implement the standard UICollectionViewDatasource methods in your view controller
 
-4. Create a custom UICollectionViewCell which inherits from ScalingCarouselCell
+4. Create a custom UICollectionViewCell which inherits from ScalingCarouselCell, and set the cell type to your custom cell type in the storyboard
 
-5. Set the cell type to your custom cell type in the storyboard
+5. Add a view to the cell's content view, and connect this via the Connections Inspector (in Interface builder) to the cell's mainView IBOutlet.
+This property is declared in ScalingCarouselCell. You should add any cell content to this view.
 
 ### Code
 
-1. Create and add a ScalingCarouselView to your view as follows; 
+1. Create a custom UICollectionViewCell which inherits from ScalingCarouselCell. Initialize the mainView property, which is declared in ScalingCarouselCell;
+
+```
+override init(frame: CGRect) {
+  super.init(frame: frame)
+
+  // Initialize the mainView property and add it to the cell's contentView
+  mainView = UIView(frame: contentView.bounds)
+  contentView.addSubview(mainView)
+}
+```
+
+2. Create and add a ScalingCarouselView to your view, and implement the standard UICollectionViewDatasource methods in your view controller;
 
 ```
 // Create our carousel
@@ -48,8 +61,6 @@ scalingCarousel.heightAnchor.constraint(equalToConstant: 300).isActive = true
 scalingCarousel.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
 scalingCarousel.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
 ```
-
-2. Implement the standard UICollectionViewDatasource methods in your view controller
 
 ## Example
 
