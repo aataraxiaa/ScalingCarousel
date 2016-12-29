@@ -38,7 +38,7 @@ open class ScalingCarouselView: UICollectionView {
     
     // MARK: - Lifecycle
     
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+    override public init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         configure()
     }
@@ -46,6 +46,17 @@ open class ScalingCarouselView: UICollectionView {
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         configure()
+    }
+    
+    /// Convenience initializer allowing setting of the carousel inset
+    ///
+    /// - Parameters:
+    ///   - frame: Frame
+    ///   - inset: Inset
+    public convenience init(withFrame frame: CGRect, andInset inset: CGFloat) {
+        self.init(frame: frame, collectionViewLayout: ScalingCarouselLayout(withCarouselInset: inset))
+        
+        self.inset = inset
     }
     
     // MARK: - Overrides
@@ -95,7 +106,7 @@ open class ScalingCarouselView: UICollectionView {
 private typealias InvisibleScrollDelegate = ScalingCarouselView
 extension InvisibleScrollDelegate: UIScrollViewDelegate {
     
-    open func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         delegate?.scrollViewDidScroll?(scrollView)
         
@@ -110,7 +121,7 @@ extension InvisibleScrollDelegate: UIScrollViewDelegate {
         }
     }
     
-    open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         delegate?.scrollViewDidEndDecelerating?(scrollView)
     }
     

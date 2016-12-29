@@ -23,7 +23,7 @@ open class ScalingCarouselCell: UICollectionViewCell {
     // MARK: - IBOutlets
     
     // This property should be connected to the main cell subview
-    @IBOutlet public weak var mainView: UIView!
+    @IBOutlet public var mainView: UIView!
     
     private struct InternalConstants {
         static let alphaSmallestValue: CGFloat = 0.85
@@ -52,23 +52,45 @@ open class ScalingCarouselCell: UICollectionViewCell {
     /// - parameter scaleMinimum:  The minimun % a cell should scale to,
     ///             expressed as a value between 0.0 and 1.0
     open func scale(withCarouselInset carouselInset: CGFloat, scaleMinimum: CGFloat = 0.9) {
-        guard let mainView = mainView else { return }
+        guard let superview = superview, let mainView = mainView else { return }
         
-        let originX = convert(mainView.frame, to: nil).origin.x
+        print("\n******")
+        
+        print("frame: \(frame)")
+        print("bounds: \(bounds)")
+        print("mainView.frame: \(mainView.frame)")
+        print("mainView.bounds: \(mainView.bounds)")
+        
+        let originX = superview.convert(frame, to: nil).origin.x
+        
+        print("originX: \(originX))")
         
         let originXActual = originX - carouselInset
         
+        print("originXActual: \(originXActual))")
+        
         let width = frame.size.width
+        
+        print("frame width: \(width)")
+        print("mainView frame width: \(mainView.frame.size.width)")
         
         let scaleCalculator = fabs(width - fabs(originXActual))
         
+        print("scaleCalculator: \(scaleCalculator)")
+        
         let percentageScale = (scaleCalculator/width)
+        
+        print("percentageScale: \(percentageScale)")
         
         let scaleValue = scaleMinimum + (percentageScale/InternalConstants.scaleDivisor)
         let alphaValue = InternalConstants.alphaSmallestValue + (percentageScale/InternalConstants.scaleDivisor)
         
+        print("scaleValue: \(scaleValue))")
+        
         mainView.transform = CGAffineTransform.identity.scaledBy(x: scaleValue, y: scaleValue)
         mainView.alpha = alphaValue
         mainView.layer.cornerRadius = 20
+        
+        print("******")
     }
 }

@@ -13,7 +13,7 @@ import ScalingCarousel
 
 class Cell: ScalingCarouselCell {}
 
-class ViewController: UIViewController {
+class StoryboardViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet weak var carousel: ScalingCarouselView!
@@ -27,12 +27,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        carouselBottomConstraint.constant = Constants.carouselHideConstant
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+//        carouselBottomConstraint.constant = Constants.carouselHideConstant
     }
     
     // MARK: - Button Actions
@@ -47,17 +42,19 @@ class ViewController: UIViewController {
     }
 }
 
-typealias CarouselDatasource = ViewController
+typealias CarouselDatasource = StoryboardViewController
 extension CarouselDatasource: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         
-        cell.backgroundColor = .red
+        if let scalingCell = cell as? ScalingCarouselCell {
+            scalingCell.mainView.backgroundColor = .red
+        }
         
         return cell
     }

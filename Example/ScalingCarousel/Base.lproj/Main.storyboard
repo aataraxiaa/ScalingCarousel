@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jed-5q-J52">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Storyboard-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="ScalingCarousel_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="StoryboardViewController" customModule="ScalingCarousel_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mq8-SH-Mx8" customClass="ScalingCarouselView" customModule="ScalingCarousel">
-                                <rect key="frame" x="0.0" y="402" width="375" height="250"/>
+                                <rect key="frame" x="0.0" y="353" width="375" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="9nX-Ku-j46"/>
@@ -84,12 +84,51 @@
                             <constraint firstItem="Mq8-SH-Mx8" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="NPp-qY-rgM"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Storyboard" id="7Ol-Hv-b1V"/>
                     <connections>
                         <outlet property="carouselBottomConstraint" destination="Kee-s5-jSC" id="HnZ-jP-gpN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-332" y="-851"/>
+        </scene>
+        <!--Code-->
+        <scene sceneID="xPD-nt-BgT">
+            <objects>
+                <viewController id="GQ1-V2-c06" customClass="CodeViewController" customModule="ScalingCarousel_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5AE-Qq-kPx"/>
+                        <viewControllerLayoutGuide type="bottom" id="9A3-dh-CXO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eKu-Eq-cui">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Code" id="kLX-so-YYg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cgm-DY-ogT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-332" y="-40"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="t1i-tV-bQ3">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="jed-5q-J52" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Xg8-GK-uv2">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="eFb-K1-qYg"/>
+                        <segue destination="GQ1-V2-c06" kind="relationship" relationship="viewControllers" id="fz0-ik-wQS"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iNH-e4-Uuq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1431" y="-467"/>
         </scene>
     </scenes>
 </document>
