@@ -28,7 +28,7 @@ ScalingCarousel can be added via both storyboard/xib and code, as described belo
 
 ### Code
 
-1. Create and add a ScalingCarouselView to your view as follows;
+1. Create and add a ScalingCarouselView to your view as follows; 
 
 ```
 // Create our carousel
