@@ -44,7 +44,8 @@ open class ScalingCarouselView: UICollectionView {
             }
             
             // Set the invisibleScrollView contentSize width based on number of items
-            invisibleScrollView.contentSize.width = invisibleScrollView.frame.width * CGFloat(numberItems)
+            let contentWidth = invisibleScrollView.frame.width * CGFloat(numberItems)
+            invisibleScrollView.contentSize = CGSize(width: contentWidth, height: invisibleScrollView.frame.height)
         }
     }
     
@@ -108,6 +109,8 @@ open class ScalingCarouselView: UICollectionView {
         invisibleScrollView.isPagingEnabled = true
         invisibleScrollView.showsHorizontalScrollIndicator = false
         
+        
+        print("Frame size: \(frame.size)")
         invisibleScrollView.contentSize = frame.size
         
         // Turn off interaction on the overlay so touch events fall through to the main scroll view
