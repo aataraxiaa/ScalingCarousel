@@ -29,7 +29,22 @@ open class ScalingCarouselView: UICollectionView {
     /// Override of the collection view content size to add an observer
     override open var contentSize: CGSize {
         didSet {
-            invisibleScrollView.contentSize = contentSize
+            
+            guard let dataSource = dataSource else { return }
+            
+            let numberSections = dataSource.numberOfSections?(in: self) ?? 1
+            
+            // Calculate total number of items in collection view
+            var numberItems = 0
+            
+            for i in 0..<numberSections {
+                
+                let numberSectionItems = dataSource.collectionView(self, numberOfItemsInSection: i)
+                numberItems += numberSectionItems
+            }
+            
+            // Set the invisibleScrollView contentSize width based on number of items
+            invisibleScrollView.contentSize.width = invisibleScrollView.frame.width * CGFloat(numberItems)
         }
     }
     
@@ -92,6 +107,8 @@ open class ScalingCarouselView: UICollectionView {
         invisibleScrollView.translatesAutoresizingMaskIntoConstraints = false
         invisibleScrollView.isPagingEnabled = true
         invisibleScrollView.showsHorizontalScrollIndicator = false
+        
+        invisibleScrollView.contentSize = frame.size
         
         // Turn off interaction on the overlay so touch events fall through to the main scroll view
         invisibleScrollView.isUserInteractionEnabled = false
