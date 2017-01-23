@@ -103,7 +103,7 @@ open class ScalingCarouselView: UICollectionView {
     
     private func configure() {
         
-        // Add our 'invisible' scrollview
+        /// Add our 'invisible' scrollview
         invisibleScrollView = UIScrollView(frame: self.bounds)
         invisibleScrollView.translatesAutoresizingMaskIntoConstraints = false
         invisibleScrollView.isPagingEnabled = true
@@ -112,15 +112,18 @@ open class ScalingCarouselView: UICollectionView {
         // Set an initial content size, not too important as it will be updated soon
         invisibleScrollView.contentSize = frame.size
         
-        /* 
+        /*
          Disable user interaction on the 'invisible' scrollview,
          This means touch events will fall through to the underlying UICollectionView
-        */
+         */
         invisibleScrollView.isUserInteractionEnabled = false
+        /// Set the scroll delegate to be our UICollectionView
         invisibleScrollView.delegate = self
-        
-        // Now add the disabled scrollviews pan gesture recognizer to our collection view
+        /*
+         Now add the disabled scrollviews pan gesture recognizer to our collection view
+         */
         addGestureRecognizer(invisibleScrollView.panGestureRecognizer)
+        /// Finally, add the 'invisible' scrollview as a subview
         addSubview(invisibleScrollView)
     }
 }
@@ -133,9 +136,13 @@ extension InvisibleScrollDelegate: UIScrollViewDelegate {
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
+        // Also pass delegate calls to other possible external delegates
         delegate?.scrollViewDidScroll?(scrollView)
         
-        // Only move the collection view by an amount based on the invisible scrollview
+        /*
+         Move the ScalingCarousel based on the
+         contentOffset of the 'invisible' UIScrollView
+        */
         updateOffSet()
         
         // Scale Visible cells
