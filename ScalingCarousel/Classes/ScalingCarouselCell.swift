@@ -51,22 +51,38 @@ open class ScalingCarouselCell: UICollectionViewCell {
     /// - parameter carouselInset: The inset of the related SPBCarousel view
     /// - parameter scaleMinimum:  The minimun % a cell should scale to,
     ///             expressed as a value between 0.0 and 1.0
-    open func scale(withCarouselInset carouselInset: CGFloat, scaleMinimum: CGFloat = 0.9) {
-        guard let superview = superview, let mainView = mainView else { return }
+    open func scale(withCarouselInset carouselInset: CGFloat,
+                    scaleMinimum: CGFloat = 0.9) {
         
+        // Ensure we have a superView, and mainView
+        guard let superview = superview,
+            let mainView = mainView else { return }
+        
+        // Get our absolute origin value
         let originX = superview.convert(frame, to: nil).origin.x
+        
+        // Calculate our actual origin.x value using our inset
         let originXActual = originX - carouselInset
         
         let width = frame.size.width
         
+        // Calculate our scale values
         let scaleCalculator = fabs(width - fabs(originXActual))
         let percentageScale = (scaleCalculator/width)
         
-        let scaleValue = scaleMinimum + (percentageScale/InternalConstants.scaleDivisor)
-        let alphaValue = InternalConstants.alphaSmallestValue + (percentageScale/InternalConstants.scaleDivisor)
+        let scaleValue = scaleMinimum
+            + (percentageScale/InternalConstants.scaleDivisor)
         
-        mainView.transform = CGAffineTransform.identity.scaledBy(x: scaleValue, y: scaleValue)
+        let alphaValue = InternalConstants.alphaSmallestValue
+            + (percentageScale/InternalConstants.scaleDivisor)
+        
+        let affineIdentity = CGAffineTransform.identity
+        
+        // Scale our mainView and set it's alpha value
+        mainView.transform = affineIdentity.scaledBy(x: scaleValue, y: scaleValue)
         mainView.alpha = alphaValue
+        
+        // ..also..round the corners
         mainView.layer.cornerRadius = 20
     }
 }
