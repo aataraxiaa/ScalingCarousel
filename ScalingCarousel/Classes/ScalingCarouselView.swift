@@ -50,12 +50,6 @@ open class ScalingCarouselView: UICollectionView {
         }
     }
     
-    override open var contentOffset: CGPoint {
-        didSet {
-            guard let invisibleScrollView = invisibleScrollView else { return }
-        }
-    }
-    
     // MARK: - Properties (Private)
     fileprivate var invisibleScrollView: UIScrollView!
     fileprivate var invisibleWidthConstraint: NSLayoutConstraint?
