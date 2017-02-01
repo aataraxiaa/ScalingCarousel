@@ -30,7 +30,8 @@ open class ScalingCarouselView: UICollectionView {
     override open var contentSize: CGSize {
         didSet {
             
-            guard let dataSource = dataSource else { return }
+            guard let dataSource = dataSource,
+                let invisibleScrollView = invisibleScrollView else { return }
             
             let numberSections = dataSource.numberOfSections?(in: self) ?? 1
             
@@ -153,6 +154,8 @@ fileprivate extension PrivateAPI {
     
     fileprivate func configureLayout() {
         collectionViewLayout = ScalingCarouselLayout(withCarouselInset: inset)
+        
+        guard let invisibleScrollView = invisibleScrollView else { return }
     
         // Remove constraints if they already exist
         invisibleWidthConstraint?.isActive = false
