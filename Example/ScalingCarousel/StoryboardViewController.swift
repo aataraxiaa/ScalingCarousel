@@ -59,3 +59,11 @@ extension CarouselDatasource: UICollectionViewDataSource {
         return cell
     }
 }
+
+typealias CarouselDelegate = StoryboardViewController
+extension StoryboardViewController: UICollectionViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        carousel.didScroll()
+    }
+}

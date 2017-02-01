@@ -22,7 +22,7 @@ open class ScalingCarouselView: UICollectionView {
     /// Inset of the main, center cell
     @IBInspectable public var inset: CGFloat = 0.0 {
         didSet {
-            collectionViewLayout = ScalingCarouselLayout(withCarouselInset: inset)
+            configureLayout()
         }
     }
     
@@ -49,19 +49,25 @@ open class ScalingCarouselView: UICollectionView {
         }
     }
     
+    override open var contentOffset: CGPoint {
+        didSet {
+            guard let invisibleScrollView = invisibleScrollView else { return }
+        }
+    }
+    
     // MARK: - Properties (Private)
     fileprivate var invisibleScrollView: UIScrollView!
+    fileprivate var invisibleWidthConstraint: NSLayoutConstraint?
+    fileprivate var invisibleLeftConstraint: NSLayoutConstraint?
     
     // MARK: - Lifecycle
     
     override public init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
-        configure()
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        configure()
     }
     
     /// Convenience initializer allowing setting of the carousel inset
@@ -77,16 +83,6 @@ open class ScalingCarouselView: UICollectionView {
     
     // MARK: - Overrides
     
-    override open func updateConstraints() {
-        
-        invisibleScrollView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
-        invisibleScrollView.widthAnchor.constraint(equalTo: widthAnchor, constant: -(2 * inset)).isActive = true
-        invisibleScrollView.leftAnchor.constraint(equalTo: leftAnchor, constant: inset).isActive = true
-        invisibleScrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        
-        super.updateConstraints()
-    }
-    
     override open func scrollRectToVisible(_ rect: CGRect, animated: Bool) {
         invisibleScrollView.setContentOffset(rect.origin, animated: animated)
     }
@@ -99,18 +95,40 @@ open class ScalingCarouselView: UICollectionView {
         scrollRectToVisible(rect, animated: animated)
     }
     
-    // MARK: - Configuration
+    override open func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        
+        addInvisibleScrollView(to: superview)
+    }
     
-    private func configure() {
+    // MARK: - Public API
+    
+    /*
+     This method should ALWAYS be called from the ScalingCarousel delegate when
+     the UIScrollViewDelegate scrollViewDidScroll(_:) method is called
+     
+     e.g In the ScalingCarousel delegate, implement:
+     
+     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        carousel.didScroll()
+     }
+    */
+    public func didScroll() {
+        scrollViewDidScroll(self)
+    }
+}
+
+private typealias PrivateAPI = ScalingCarouselView
+fileprivate extension PrivateAPI {
+    
+    fileprivate func addInvisibleScrollView(to superview: UIView?) {
+        guard let superview = superview else { return }
         
         /// Add our 'invisible' scrollview
-        invisibleScrollView = UIScrollView(frame: self.bounds)
+        invisibleScrollView = UIScrollView(frame: bounds)
         invisibleScrollView.translatesAutoresizingMaskIntoConstraints = false
         invisibleScrollView.isPagingEnabled = true
         invisibleScrollView.showsHorizontalScrollIndicator = false
-        
-        // Set an initial content size, not too important as it will be updated soon
-        invisibleScrollView.contentSize = frame.size
         
         /*
          Disable user interaction on the 'invisible' scrollview,
@@ -124,7 +142,27 @@ open class ScalingCarouselView: UICollectionView {
          */
         addGestureRecognizer(invisibleScrollView.panGestureRecognizer)
         /// Finally, add the 'invisible' scrollview as a subview
-        addSubview(invisibleScrollView)
+        superview.addSubview(invisibleScrollView)
+        
+        // Add constraints
+        invisibleScrollView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+        invisibleScrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        
+        configureLayout()
+    }
+    
+    fileprivate func configureLayout() {
+        collectionViewLayout = ScalingCarouselLayout(withCarouselInset: inset)
+    
+        // Remove constraints if they already exist
+        invisibleWidthConstraint?.isActive = false
+        invisibleLeftConstraint?.isActive = false
+        
+        invisibleWidthConstraint = invisibleScrollView.widthAnchor.constraint(equalTo: widthAnchor, constant: -(2 * inset))
+        invisibleLeftConstraint =  invisibleScrollView.leftAnchor.constraint(equalTo: leftAnchor, constant: inset)
+        
+        invisibleWidthConstraint?.isActive = true
+        invisibleLeftConstraint?.isActive = true
     }
 }
 
@@ -136,11 +174,8 @@ extension InvisibleScrollDelegate: UIScrollViewDelegate {
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        // Also pass delegate calls to other possible external delegates
-        delegate?.scrollViewDidScroll?(scrollView)
-        
         /*
-         Move the ScalingCarousel based on the
+         Move the ScalingCarousel base d on the
          contentOffset of the 'invisible' UIScrollView
         */
         updateOffSet()
