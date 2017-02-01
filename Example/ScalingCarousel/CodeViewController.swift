@@ -24,6 +24,9 @@ class CodeCell: ScalingCarouselCell {
 }
 
 class CodeViewController: UIViewController {
+    
+    // MARK: - Properties (Private)
+    fileprivate var scalingCarousel: ScalingCarouselView!
 
     // MARK: - Lifecycle
     
@@ -43,8 +46,9 @@ class CodeViewController: UIViewController {
     private func addCarousel() {
         
         let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-        let scalingCarousel = ScalingCarouselView(withFrame: frame, andInset: 20)
+        scalingCarousel = ScalingCarouselView(withFrame: frame, andInset: 20)
         scalingCarousel.dataSource = self
+        scalingCarousel.delegate = self
         scalingCarousel.translatesAutoresizingMaskIntoConstraints = false
         scalingCarousel.backgroundColor = .white
         
@@ -74,5 +78,12 @@ extension CodeViewController: UICollectionViewDataSource {
         }
         
         return cell
+    }
+}
+
+extension CodeViewController: UICollectionViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scalingCarousel.didScroll()
     }
 }

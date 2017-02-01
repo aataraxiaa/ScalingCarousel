@@ -30,11 +30,14 @@ open class ScalingCarouselLayout: UICollectionViewFlowLayout {
     }
     
     override open func prepare() {
+        
         guard let collectionViewSize = collectionView?.frame.size else { return }
         
+        // Set itemSize based on total width and inset
         itemSize = collectionViewSize
         itemSize.width = itemSize.width - (inset * 2)
         
+        // Set scrollDirection and paging
         scrollDirection = .horizontal
         collectionView?.isPagingEnabled = true
         

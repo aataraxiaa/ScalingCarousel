@@ -24,6 +24,8 @@ ScalingCarousel can be added via both storyboard/xib and code, as described belo
 
 * Set your UIViewController as the collection view datasource and implement the standard UICollectionViewDatasource methods in your view controller
 
+* Set your UIViewController as the collection view delegate and implement the UIScrollViewDelegate method scrollViewDidScroll(:). In this method, call the didScroll() method of ScalingCarouselView
+
 * Create a custom UICollectionViewCell which inherits from ScalingCarouselCell, and set the cell type to your custom cell type in the storyboard
 
 * Add a view to the cell's content view, and connect this via the Connections Inspector (in Interface builder) to the cell's mainView IBOutlet.
@@ -63,6 +65,8 @@ scalingCarousel.heightAnchor.constraint(equalToConstant: 300).isActive = true
 scalingCarousel.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
 scalingCarousel.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
 ```
+
+* Set your UIViewController as the collection view delegate and implement the UIScrollViewDelegate method scrollViewDidScroll(:). In this method, call the didScroll() method of ScalingCarouselView
 
 ## Example
 

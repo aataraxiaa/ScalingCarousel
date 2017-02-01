@@ -139,9 +139,9 @@
 		2AF1556C49363C2BA1C10796E1C93F58 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BA88835C545DBDE8A6A6984912DA1E88 /* ScalingCarouselView.swift */,
 				0F029A4B46297C4E659645069518366C /* ScalingCarouselCell.swift */,
 				BFA8691AE35E197F6C1CFAD0EC691EE2 /* ScalingCarouselLayout.swift */,
-				BA88835C545DBDE8A6A6984912DA1E88 /* ScalingCarouselView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
