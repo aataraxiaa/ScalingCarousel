@@ -22,6 +22,10 @@ open class ScalingCarouselView: UICollectionView {
     /// Inset of the main, center cell
     @IBInspectable public var inset: CGFloat = 0.0 {
         didSet {
+            /*
+             Configure our layout, and add more
+             constraints to our invisible UIScrollView
+            */
             configureLayout()
         }
     }
@@ -130,34 +134,62 @@ fileprivate extension PrivateAPI {
          This means touch events will fall through to the underlying UICollectionView
          */
         invisibleScrollView.isUserInteractionEnabled = false
-        /// Set the scroll delegate to be our UICollectionView
+        
+        /// Set the scroll delegate to be the ScalingCarouselView
         invisibleScrollView.delegate = self
+        
         /*
-         Now add the disabled scrollviews pan gesture recognizer to our collection view
+         Now add the invisible scrollview's pan 
+         gesture recognizer to the ScalingCarouselView
          */
         addGestureRecognizer(invisibleScrollView.panGestureRecognizer)
-        /// Finally, add the 'invisible' scrollview as a subview
+        
+        /*
+         Finally, add the 'invisible' scrollview as a subview 
+         of the ScalingCarousel's superview
+        */
         superview.addSubview(invisibleScrollView)
         
-        // Add constraints
+        /*
+         Add constraints for height and top, relative to the
+         ScalingCarouselView
+        */
         invisibleScrollView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
         invisibleScrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         
+        /*
+         Further configure our layout and add more constraints
+         for width and left position
+        */
         configureLayout()
     }
     
     fileprivate func configureLayout() {
-        collectionViewLayout = ScalingCarouselLayout(withCarouselInset: inset)
         
+        // Create a ScalingCarouselLayout using our inset
+        collectionViewLayout = ScalingCarouselLayout(
+            withCarouselInset: inset)
+        
+        /*
+         Only continue if we have a reference to
+         our 'invisible' UIScrollView
+        */
         guard let invisibleScrollView = invisibleScrollView else { return }
     
         // Remove constraints if they already exist
         invisibleWidthConstraint?.isActive = false
         invisibleLeftConstraint?.isActive = false
         
-        invisibleWidthConstraint = invisibleScrollView.widthAnchor.constraint(equalTo: widthAnchor, constant: -(2 * inset))
-        invisibleLeftConstraint =  invisibleScrollView.leftAnchor.constraint(equalTo: leftAnchor, constant: inset)
+        /* 
+         Add constrants for width and left postion 
+         to our 'invisible' UIScrollView
+        */
+        invisibleWidthConstraint = invisibleScrollView.widthAnchor.constraint(
+            equalTo: widthAnchor, constant: -(2 * inset))
+        invisibleLeftConstraint =  invisibleScrollView.leftAnchor.constraint(
+            equalTo: leftAnchor, constant: inset)
         
+        // Activate the constraints
         invisibleWidthConstraint?.isActive = true
         invisibleLeftConstraint?.isActive = true
     }
@@ -177,7 +209,7 @@ extension InvisibleScrollDelegate: UIScrollViewDelegate {
         */
         updateOffSet()
         
-        // Scale Visible cells
+        // Also, this is where we scale our cells
         for cell in visibleCells {
             if let infoCardCell = cell as? ScalingCarouselCell {
                 infoCardCell.scale(withCarouselInset: inset)
