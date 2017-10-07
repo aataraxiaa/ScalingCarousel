@@ -18,6 +18,7 @@ class StoryboardViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var carousel: ScalingCarouselView!
     @IBOutlet weak var carouselBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var output: UILabel!
     
     private struct Constants {
         static let carouselHideConstant: CGFloat = -250
@@ -65,5 +66,9 @@ extension StoryboardViewController: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         carousel.didScroll()
+        
+        guard let currentCenterIndex = carousel.currentCenterCellIndex?.row else { return }
+        
+        output.text = String(describing: currentCenterIndex)
     }
 }

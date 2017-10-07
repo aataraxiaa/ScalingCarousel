@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E144f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jed-5q-J52">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jed-5q-J52">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -74,20 +75,29 @@
                                     <action selector="showHideButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Jsy-vc-cWp"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYO-rO-XuZ">
+                                <rect key="frame" x="187" y="143" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Mq8-SH-Mx8" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="4Ux-ib-2uZ"/>
+                            <constraint firstItem="UYO-rO-XuZ" firstAttribute="centerX" secondItem="KAz-De-GJ8" secondAttribute="centerX" id="8U2-jX-Aw6"/>
                             <constraint firstItem="KAz-De-GJ8" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="85" id="Ffh-uk-Qnl"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Mq8-SH-Mx8" secondAttribute="bottom" constant="15" id="Kee-s5-jSC"/>
                             <constraint firstItem="KAz-De-GJ8" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="M5E-lE-5Pp"/>
                             <constraint firstItem="Mq8-SH-Mx8" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="NPp-qY-rgM"/>
+                            <constraint firstItem="UYO-rO-XuZ" firstAttribute="top" secondItem="KAz-De-GJ8" secondAttribute="bottom" constant="8" id="nfn-SZ-h6K"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Storyboard" id="7Ol-Hv-b1V"/>
                     <connections>
                         <outlet property="carousel" destination="Mq8-SH-Mx8" id="PYK-cv-2wb"/>
                         <outlet property="carouselBottomConstraint" destination="Kee-s5-jSC" id="HnZ-jP-gpN"/>
+                        <outlet property="output" destination="UYO-rO-XuZ" id="v8Z-xt-lyT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

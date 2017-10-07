@@ -30,6 +30,32 @@ open class ScalingCarouselView: UICollectionView {
         }
     }
     
+    /// Returns the current center cell of the carousel if it can be calculated
+    public var currentCenterCell: UICollectionViewCell? {
+        
+        let lowerBound = inset - 20
+        let upperBound = inset + 20
+        
+        for cell in visibleCells {
+            
+            let cellRect = convert(cell.frame, to: nil)
+            
+            if cellRect.origin.x > lowerBound && cellRect.origin.x < upperBound {
+                return cell
+            }
+            
+        }
+        
+        return nil
+    }
+    
+    /// Returns the IndexPath of the current center cell if it can be calculated
+    public var currentCenterCellIndex: IndexPath? {
+        guard let currentCenterCell = self.currentCenterCell else { return nil }
+        
+        return indexPath(for: currentCenterCell)
+    }
+    
     /// Override of the collection view content size to add an observer
     override open var contentSize: CGSize {
         didSet {
