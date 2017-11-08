@@ -31,7 +31,7 @@ open class ScalingCarouselView: UICollectionView {
     }
     
     /// Returns the current center cell of the carousel if it can be calculated
-    public var currentCenterCell: UICollectionViewCell? {
+    open var currentCenterCell: UICollectionViewCell? {
         
         let lowerBound = inset - 20
         let upperBound = inset + 20
@@ -50,7 +50,7 @@ open class ScalingCarouselView: UICollectionView {
     }
     
     /// Returns the IndexPath of the current center cell if it can be calculated
-    public var currentCenterCellIndex: IndexPath? {
+    open var currentCenterCellIndex: IndexPath? {
         guard let currentCenterCell = self.currentCenterCell else { return nil }
         
         return indexPath(for: currentCenterCell)
