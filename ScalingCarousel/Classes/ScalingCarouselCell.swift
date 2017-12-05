@@ -59,7 +59,7 @@ open class ScalingCarouselCell: UICollectionViewCell {
             let mainView = mainView else { return }
         
         // Get our absolute origin value
-        let originX = superview.convert(frame, to: nil).origin.x
+        let originX = superview.convert(frame, to: superview.superview).origin.x
         
         // Calculate our actual origin.x value using our inset
         let originXActual = originX - carouselInset
