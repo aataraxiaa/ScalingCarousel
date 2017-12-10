@@ -51,6 +51,7 @@ override init(frame: CGRect) {
 // Create our carousel
 let scalingCarousel = ScalingCarouselView(withFrame: frame, andInset: 20)
 scalingCarousel.dataSource = self
+scalingCarousel.delegate = self
 scalingCarousel.translatesAutoresizingMaskIntoConstraints = false
 
 // Register our custom cell for dequeueing
