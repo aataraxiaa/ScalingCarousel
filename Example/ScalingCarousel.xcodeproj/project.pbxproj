@@ -15,10 +15,6 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		659A02AE202F775500587C36 /* ScalingCarousel.h in Headers */ = {isa = PBXBuildFile; fileRef = 659A02AC202F775500587C36 /* ScalingCarousel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		659A02B2202F775E00587C36 /* ScalingCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659A02A3202F774500587C36 /* ScalingCarouselCell.swift */; };
-		659A02B3202F775E00587C36 /* ScalingCarouselLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659A02A4202F774600587C36 /* ScalingCarouselLayout.swift */; };
-		659A02B4202F775E00587C36 /* ScalingCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659A02A2202F774500587C36 /* ScalingCarouselView.swift */; };
 		65E99FA11E1519D50026BEC4 /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E99FA01E1519D50026BEC4 /* CodeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,10 +43,6 @@
 		607FACE51AFB9204008FA782 /* ScalingCarousel_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScalingCarousel_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		659A02A2202F774500587C36 /* ScalingCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScalingCarouselView.swift; path = ../../ScalingCarousel/Classes/ScalingCarouselView.swift; sourceTree = "<group>"; };
-		659A02A3202F774500587C36 /* ScalingCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScalingCarouselCell.swift; path = ../../ScalingCarousel/Classes/ScalingCarouselCell.swift; sourceTree = "<group>"; };
-		659A02A4202F774600587C36 /* ScalingCarouselLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScalingCarouselLayout.swift; path = ../../ScalingCarousel/Classes/ScalingCarouselLayout.swift; sourceTree = "<group>"; };
-		659A02AA202F775500587C36 /* ScalingCarousel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ScalingCarousel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		659A02AC202F775500587C36 /* ScalingCarousel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScalingCarousel.h; sourceTree = "<group>"; };
 		659A02AD202F775500587C36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65E99FA01E1519D50026BEC4 /* CodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
@@ -78,13 +70,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		659A02A6202F775500587C36 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -100,7 +85,6 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				659A02A1202F76B400587C36 /* CarthageSupport */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -116,7 +100,6 @@
 			children = (
 				607FACD01AFB9204008FA782 /* ScalingCarousel_Example.app */,
 				607FACE51AFB9204008FA782 /* ScalingCarousel_Tests.xctest */,
-				659A02AA202F775500587C36 /* ScalingCarousel.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -167,16 +150,6 @@
 				2CDA8F1B0A30ECE4574BBC6B /* LICENSE */,
 			);
 			name = "Podspec Metadata";
-			sourceTree = "<group>";
-		};
-		659A02A1202F76B400587C36 /* CarthageSupport */ = {
-			isa = PBXGroup;
-			children = (
-				659A02A3202F774500587C36 /* ScalingCarouselCell.swift */,
-				659A02A4202F774600587C36 /* ScalingCarouselLayout.swift */,
-				659A02A2202F774500587C36 /* ScalingCarouselView.swift */,
-			);
-			path = CarthageSupport;
 			sourceTree = "<group>";
 		};
 		659A02AB202F775500587C36 /* ScalingCarousel */ = {
@@ -235,17 +208,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		659A02A7202F775500587C36 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				659A02AE202F775500587C36 /* ScalingCarousel.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		607FACCF1AFB9204008FA782 /* ScalingCarousel_Example */ = {
 			isa = PBXNativeTarget;
@@ -288,24 +250,6 @@
 			productReference = 607FACE51AFB9204008FA782 /* ScalingCarousel_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		659A02A9202F775500587C36 /* ScalingCarousel */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 659A02AF202F775500587C36 /* Build configuration list for PBXNativeTarget "ScalingCarousel" */;
-			buildPhases = (
-				659A02A5202F775500587C36 /* Sources */,
-				659A02A6202F775500587C36 /* Frameworks */,
-				659A02A7202F775500587C36 /* Headers */,
-				659A02A8202F775500587C36 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ScalingCarousel;
-			productName = ScalingCarousel;
-			productReference = 659A02AA202F775500587C36 /* ScalingCarousel.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -325,11 +269,6 @@
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
-					659A02A9202F775500587C36 = {
-						CreatedOnToolsVersion = 9.2;
-						DevelopmentTeam = 49CJ89TL4W;
-						ProvisioningStyle = Automatic;
-					};
 				};
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "ScalingCarousel" */;
@@ -347,7 +286,6 @@
 			targets = (
 				607FACCF1AFB9204008FA782 /* ScalingCarousel_Example */,
 				607FACE41AFB9204008FA782 /* ScalingCarousel_Tests */,
-				659A02A9202F775500587C36 /* ScalingCarousel */,
 			);
 		};
 /* End PBXProject section */
@@ -364,13 +302,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		607FACE31AFB9204008FA782 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		659A02A8202F775500587C36 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -488,16 +419,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		659A02A5202F775500587C36 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				659A02B2202F775E00587C36 /* ScalingCarouselCell.swift in Sources */,
-				659A02B3202F775E00587C36 /* ScalingCarouselLayout.swift in Sources */,
-				659A02B4202F775E00587C36 /* ScalingCarouselView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,70 +623,6 @@
 			};
 			name = Release;
 		};
-		659A02B0202F775500587C36 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 49CJ89TL4W;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ScalingCarousel/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.petesmith.ScalingCarousel;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		659A02B1202F775500587C36 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 49CJ89TL4W;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ScalingCarousel/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.petesmith.ScalingCarousel;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -792,15 +649,6 @@
 			buildConfigurations = (
 				607FACF31AFB9204008FA782 /* Debug */,
 				607FACF41AFB9204008FA782 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		659A02AF202F775500587C36 /* Build configuration list for PBXNativeTarget "ScalingCarousel" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				659A02B0202F775500587C36 /* Debug */,
-				659A02B1202F775500587C36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
