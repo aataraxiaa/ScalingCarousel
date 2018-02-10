@@ -1,9 +1,10 @@
 # ScalingCarousel
 
-[![CI Status](http://img.shields.io/travis/Pete Smith/ScalingCarousel.svg?style=flat)](https://travis-ci.org/superpeteblaze/ScalingCarousel)
+[![CI Status](http://img.shields.io/travis/superpeteblaze/ScalingCarousel.svg?style=flat)](https://travis-ci.org/superpeteblaze/ScalingCarousel)
 [![Version](https://img.shields.io/cocoapods/v/ScalingCarousel.svg?style=flat)](http://cocoapods.org/pods/ScalingCarousel)
 [![License](https://img.shields.io/cocoapods/l/ScalingCarousel.svg?style=flat)](http://cocoapods.org/pods/ScalingCarousel)
 [![Platform](https://img.shields.io/cocoapods/p/ScalingCarousel.svg?style=flat)](http://cocoapods.org/pods/ScalingCarousel)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ScalingCarousel provides a simple carousel-style collection view.
 It takes care of cell presentation, scaling each cell as the collection view is scrolled.
