@@ -1,6 +1,6 @@
 # ScalingCarousel
 
-[![CI Status](http://img.shields.io/travis/Pete Smith/ScalingCarousel.svg?style=flat)](https://travis-ci.org/Pete Smith/ScalingCarousel)
+[![CI Status](http://img.shields.io/travis/Pete Smith/ScalingCarousel.svg?style=flat)](https://travis-ci.org/superpeteblaze/ScalingCarousel)
 [![Version](https://img.shields.io/cocoapods/v/ScalingCarousel.svg?style=flat)](http://cocoapods.org/pods/ScalingCarousel)
 [![License](https://img.shields.io/cocoapods/l/ScalingCarousel.svg?style=flat)](http://cocoapods.org/pods/ScalingCarousel)
 [![Platform](https://img.shields.io/cocoapods/p/ScalingCarousel.svg?style=flat)](http://cocoapods.org/pods/ScalingCarousel)
