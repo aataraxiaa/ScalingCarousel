@@ -80,11 +80,18 @@ iOS 9
 
 ## Installation
 
-ScalingCarousel is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+ScalingCarousel is available through [CocoaPods](http://cocoapods.org) and [Carthage](https://github.com/Carthage/Carthage). 
+
+To install via Cocoapods, add the following line to your Podfile:
 
 ```ruby
 pod "ScalingCarousel"
+```
+
+To install via Carthage, add the following line to your Podfile:
+
+```
+github "superpeteblaze/ScalingCarousel"
 ```
 
 ## Author
