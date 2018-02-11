@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ScalingCarousel'
-  s.version          = '2.0.3'
+  s.version          = '2.1'
   s.summary          = 'A super simple carousel view with scaling transitions written in Swift'
 
   s.description      = <<-DESC
