@@ -72,3 +72,17 @@ extension StoryboardViewController: UICollectionViewDelegate {
         output.text = String(describing: currentCenterIndex)
     }
 }
+
+private typealias ScalingCarouselFlowDelegate = StoryboardViewController
+extension ScalingCarouselFlowDelegate: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return 0
+    }
+}
