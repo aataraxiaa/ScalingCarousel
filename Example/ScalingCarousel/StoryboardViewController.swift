@@ -65,7 +65,7 @@ typealias CarouselDelegate = StoryboardViewController
 extension StoryboardViewController: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        carousel.didScroll()
+        //carousel.didScroll()
         
         guard let currentCenterIndex = carousel.currentCenterCellIndex?.row else { return }
         

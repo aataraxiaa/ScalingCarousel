@@ -84,6 +84,6 @@ extension CodeViewController: UICollectionViewDataSource {
 extension CodeViewController: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        scalingCarousel.didScroll()
+        //scalingCarousel.didScroll()
     }
 }
