@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jed-5q-J52">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BY5-bO-M1j">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,10 +14,6 @@
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="StoryboardViewController" customModule="ScalingCarousel_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -86,12 +83,13 @@
                         <constraints>
                             <constraint firstItem="Mq8-SH-Mx8" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="4Ux-ib-2uZ"/>
                             <constraint firstItem="UYO-rO-XuZ" firstAttribute="centerX" secondItem="KAz-De-GJ8" secondAttribute="centerX" id="8U2-jX-Aw6"/>
-                            <constraint firstItem="KAz-De-GJ8" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="85" id="Ffh-uk-Qnl"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Mq8-SH-Mx8" secondAttribute="bottom" constant="15" id="Kee-s5-jSC"/>
-                            <constraint firstItem="KAz-De-GJ8" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="M5E-lE-5Pp"/>
-                            <constraint firstItem="Mq8-SH-Mx8" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="NPp-qY-rgM"/>
+                            <constraint firstItem="KAz-De-GJ8" firstAttribute="top" secondItem="6xk-R0-sgg" secondAttribute="top" constant="85" id="Ffh-uk-Qnl"/>
+                            <constraint firstItem="6xk-R0-sgg" firstAttribute="bottom" secondItem="Mq8-SH-Mx8" secondAttribute="bottom" constant="15" id="Kee-s5-jSC"/>
+                            <constraint firstItem="KAz-De-GJ8" firstAttribute="centerX" secondItem="6xk-R0-sgg" secondAttribute="centerX" id="M5E-lE-5Pp"/>
+                            <constraint firstItem="Mq8-SH-Mx8" firstAttribute="leading" secondItem="6xk-R0-sgg" secondAttribute="leading" id="NPp-qY-rgM"/>
                             <constraint firstItem="UYO-rO-XuZ" firstAttribute="top" secondItem="KAz-De-GJ8" secondAttribute="bottom" constant="8" id="nfn-SZ-h6K"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="6xk-R0-sgg"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Storyboard" id="7Ol-Hv-b1V"/>
                     <connections>
@@ -102,45 +100,41 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-332" y="-851"/>
+            <point key="canvasLocation" x="-1122" y="-1047"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="eqA-eL-972">
+            <objects>
+                <tabBarController id="BY5-bO-M1j" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9bU-a6-6gx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="V6k-Nc-Rnj"/>
+                        <segue destination="GQ1-V2-c06" kind="relationship" relationship="viewControllers" id="4Qb-nt-Ms8"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5u5-Rc-3uB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2116" y="-646"/>
         </scene>
         <!--Code-->
         <scene sceneID="xPD-nt-BgT">
             <objects>
                 <viewController id="GQ1-V2-c06" customClass="CodeViewController" customModule="ScalingCarousel_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5AE-Qq-kPx"/>
-                        <viewControllerLayoutGuide type="bottom" id="9A3-dh-CXO"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eKu-Eq-cui">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="vm8-mu-b8r"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Code" id="kLX-so-YYg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cgm-DY-ogT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-332" y="-40"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="t1i-tV-bQ3">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="jed-5q-J52" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="Xg8-GK-uv2">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="eFb-K1-qYg"/>
-                        <segue destination="GQ1-V2-c06" kind="relationship" relationship="viewControllers" id="fz0-ik-wQS"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iNH-e4-Uuq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1431" y="-467"/>
+            <point key="canvasLocation" x="-1122" y="-309"/>
         </scene>
     </scenes>
 </document>
