@@ -20,15 +20,22 @@ import UIKit
  */
 open class ScalingCarouselCell: UICollectionViewCell {
     
+    // MARK: - Properties (Public)
+    
+    /// The minimum value to scale to, should be set between 0 and 1
+    open var scaleMinimum: CGFloat = 0.9
+    
+    /// Divisior used when calculating the scale value.
+    /// Lower values cause a greater difference in scale between subsequent cells.
+    open var scaleDivisor: CGFloat = 10.0
+    
+    /// The minimum value to alpha to, should be set between 0 and 1
+    open var alphaMinimum: CGFloat = 0.85
+    
     // MARK: - IBOutlets
     
     // This property should be connected to the main cell subview
     @IBOutlet public var mainView: UIView!
-    
-    private struct InternalConstants {
-        static let alphaSmallestValue: CGFloat = 0.85
-        static let scaleDivisor: CGFloat = 10.0
-    }
     
     // MARK: - Overrides
     
@@ -49,10 +56,7 @@ open class ScalingCarouselCell: UICollectionViewCell {
     /// Scale the cell when it is scrolled
     ///
     /// - parameter carouselInset: The inset of the related SPBCarousel view
-    /// - parameter scaleMinimum:  The minimun % a cell should scale to,
-    ///             expressed as a value between 0.0 and 1.0
-    open func scale(withCarouselInset carouselInset: CGFloat,
-                    scaleMinimum: CGFloat = 0.9) {
+    open func scale(withCarouselInset carouselInset: CGFloat) {
         
         // Ensure we have a superView, and mainView
         guard let superview = superview,
@@ -71,10 +75,10 @@ open class ScalingCarouselCell: UICollectionViewCell {
         let percentageScale = (scaleCalculator/width)
         
         let scaleValue = scaleMinimum
-            + (percentageScale/InternalConstants.scaleDivisor)
+            + (percentageScale/scaleDivisor)
         
-        let alphaValue = InternalConstants.alphaSmallestValue
-            + (percentageScale/InternalConstants.scaleDivisor)
+        let alphaValue = alphaMinimum
+            + (percentageScale/scaleDivisor)
         
         let affineIdentity = CGAffineTransform.identity
         
