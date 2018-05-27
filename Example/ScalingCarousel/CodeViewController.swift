@@ -16,6 +16,13 @@ class CodeCell: ScalingCarouselCell {
         
         mainView = UIView(frame: contentView.bounds)
         contentView.addSubview(mainView)
+        mainView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            mainView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            mainView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            mainView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            mainView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            ])
     }
     
     required init?(coder aDecoder: NSCoder) {
