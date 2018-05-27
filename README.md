@@ -96,11 +96,14 @@ scalingCarousel.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isAc
 cell.setNeedsLayout()
 cell.layoutIfNeeded()
 ```
-* Note: To ensure correct displayed of the ScalingCarousel, you need to call the following code in the method  `viewWillTransition(to size:, with coordinator:)` of the ViewController:
+* Note: To ensure correct displayed of the ScalingCarousel, you need to call the following code in the method  `viewWillTransition(to size:, with coordinator:)` of the ViewController, If you have created the ScalingCarousel by code in the viewDidLoad, It is important to verify that it exists when the method `viewWillTransition` is called or we will have a crash if we load the viewController with the device in landscape mode:
 
 ```
 super.viewWillTransition(to: size, with: coordinator)
-scalingCarousel.deviceRotated()
+if scalingCarousel != nil {
+    scalingCarousel.deviceRotated()
+}
+
 ```
 
 ## Example

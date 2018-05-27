@@ -47,6 +47,13 @@ class CodeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+         if scalingCarousel != nil {
+            scalingCarousel.deviceRotated()
+         }
+    }
     
     // MARK: - Configuration
     
@@ -83,7 +90,11 @@ extension CodeViewController: UICollectionViewDataSource {
         if let scalingCell = cell as? ScalingCarouselCell {
             scalingCell.mainView.backgroundColor = .blue
         }
-        
+        DispatchQueue.main.async {
+            cell.setNeedsLayout()
+            cell.layoutIfNeeded()
+        }
+
         return cell
     }
 }
