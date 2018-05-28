@@ -16,6 +16,13 @@ class CodeCell: ScalingCarouselCell {
         
         mainView = UIView(frame: contentView.bounds)
         contentView.addSubview(mainView)
+        mainView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            mainView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            mainView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            mainView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            mainView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            ])
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -39,6 +46,13 @@ class CodeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+         if scalingCarousel != nil {
+            scalingCarousel.deviceRotated()
+         }
     }
     
     // MARK: - Configuration
@@ -76,7 +90,11 @@ extension CodeViewController: UICollectionViewDataSource {
         if let scalingCell = cell as? ScalingCarouselCell {
             scalingCell.mainView.backgroundColor = .blue
         }
-        
+        DispatchQueue.main.async {
+            cell.setNeedsLayout()
+            cell.layoutIfNeeded()
+        }
+
         return cell
     }
 }

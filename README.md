@@ -38,6 +38,12 @@ This property is declared in ScalingCarouselCell. You should add any cell conten
 cell.setNeedsLayout()
 cell.layoutIfNeeded()
 ```
+* Note: To ensure correct displayed of the ScalingCarousel, you need to call the following code in the method  `viewWillTransition(to size:, with coordinator:)` of the ViewController:
+
+```
+super.viewWillTransition(to: size, with: coordinator)
+scalingCarousel.deviceRotated()
+```
 
 ### Code
 
@@ -50,6 +56,13 @@ override init(frame: CGRect) {
   // Initialize the mainView property and add it to the cell's contentView
   mainView = UIView(frame: contentView.bounds)
   contentView.addSubview(mainView)
+  mainView.translatesAutoresizingMaskIntoConstraints = false
+  NSLayoutConstraint.activate([
+      mainView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+      mainView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+      mainView.topAnchor.constraint(equalTo: contentView.topAnchor),
+      mainView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+  ])
 }
 ```
 
@@ -82,6 +95,15 @@ scalingCarousel.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isAc
 ```
 cell.setNeedsLayout()
 cell.layoutIfNeeded()
+```
+* Note: To ensure correct displayed of the ScalingCarousel, you need to call the following code in the method  `viewWillTransition(to size:, with coordinator:)` of the ViewController, If you have created the ScalingCarousel by code in the viewDidLoad, It is important to verify that it exists when the method `viewWillTransition` is called or we will have a crash if we load the viewController with the device in landscape mode:
+
+```
+super.viewWillTransition(to: size, with: coordinator)
+if scalingCarousel != nil {
+    scalingCarousel.deviceRotated()
+}
+
 ```
 
 ## Example

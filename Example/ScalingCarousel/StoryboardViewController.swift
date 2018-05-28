@@ -30,7 +30,11 @@ class StoryboardViewController: UIViewController {
         
         carouselBottomConstraint.constant = Constants.carouselHideConstant
     }
-    
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        carousel.deviceRotated()
+    }
     // MARK: - Button Actions
     
     @IBAction func showHideButtonPressed(_ sender: Any) {
@@ -55,6 +59,11 @@ extension CarouselDatasource: UICollectionViewDataSource {
         
         if let scalingCell = cell as? ScalingCarouselCell {
             scalingCell.mainView.backgroundColor = .red
+        }
+
+        DispatchQueue.main.async {
+            cell.setNeedsLayout()
+            cell.layoutIfNeeded()
         }
         
         return cell

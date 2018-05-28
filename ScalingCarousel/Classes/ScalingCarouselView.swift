@@ -16,7 +16,11 @@ import UIKit
  are scaled as the carousel scrolls.
  */
 open class ScalingCarouselView: UICollectionView {
-    
+
+    // MARK: - Properties (Private)
+
+    private var lastCurrentCenterCellIndex: IndexPath?
+
     // MARK: - Properties (Public)
     
     /// Inset of the main, center cell
@@ -118,6 +122,7 @@ open class ScalingCarouselView: UICollectionView {
         let originX = (CGFloat(indexPath.item) * (frame.size.width - (inset * 2)))
         let rect = CGRect(x: originX, y: 0, width: frame.size.width - (inset * 2), height: frame.height)
         scrollRectToVisible(rect, animated: animated)
+        lastCurrentCenterCellIndex = indexPath
     }
     
     override open func didMoveToSuperview() {
@@ -140,6 +145,26 @@ open class ScalingCarouselView: UICollectionView {
     */
     public func didScroll() {
         scrollViewDidScroll(self)
+    }
+
+    /*
+     This method should ALWAYS be called from the ViewController that handles the ScalingCarousel when
+     the viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) method is called
+
+     e.g Implement:
+
+     func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+     super.viewWillTransition(to: size, with: coordinator)
+     carousel.deviceRotated()
+     }
+     */
+    public func deviceRotated() {
+        guard let lastCurrentCenterCellIndex = currentCenterCellIndex ?? lastCurrentCenterCellIndex else { return }
+        DispatchQueue.main.async {
+            self.reloadData()
+            self.scrollToItem(at: lastCurrentCenterCellIndex, at: .centeredHorizontally, animated: false)
+            self.didScroll()
+        }
     }
 }
 
@@ -245,6 +270,8 @@ extension InvisibleScrollDelegate: UIScrollViewDelegate {
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         delegate?.scrollViewDidEndDecelerating?(scrollView)
+        guard let indexPath = currentCenterCellIndex else { return }
+        lastCurrentCenterCellIndex = indexPath
     }
     
     private func updateOffSet() {
