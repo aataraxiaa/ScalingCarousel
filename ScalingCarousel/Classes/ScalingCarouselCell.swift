@@ -10,14 +10,12 @@
 
 import UIKit
 
-/*
- This cell subclass is intended to be used together with ScalingCarouselView
- 
- This class adds a method used to scale the cell
- in relation to the cell's position in the top level window.
- 
- Collection view cells used with ScalingCarouselView should subclass this type
- */
+/// This cell subclass is intended to be used together with `ScalingCarouselView`.
+///
+/// This class adds a method used to scale the cell
+/// in relation to the cell's position in the top level window.
+///
+/// Collection view cells used with `ScalingCarouselView` should subclass this type.
 open class ScalingCarouselCell: UICollectionViewCell {
     
     // MARK: - Properties (Public)
@@ -71,7 +69,7 @@ open class ScalingCarouselCell: UICollectionViewCell {
         let width = frame.size.width
         
         // Calculate our scale values
-        let scaleCalculator = fabs(width - fabs(originXActual))
+        let scaleCalculator = abs(width - abs(originXActual))
         let percentageScale = (scaleCalculator/width)
         
         let scaleValue = scaleMinimum

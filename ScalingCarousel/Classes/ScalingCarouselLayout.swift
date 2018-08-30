@@ -10,10 +10,8 @@
 
 import UIKit
 
-/*
- ScalingCarouselLayout is used together with SPBCarouselView to
- provide a carousel-style collection view.
-*/
+/// ScalingCarouselLayout is used together with SPBCarouselView to
+/// provide a carousel-style collection view.
 open class ScalingCarouselLayout: UICollectionViewFlowLayout {
 
     open var inset: CGFloat = 0.0
