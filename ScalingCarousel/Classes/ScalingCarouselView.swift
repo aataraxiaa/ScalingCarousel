@@ -9,13 +9,6 @@
 //
 import UIKit
 
-#if swift(>=4.2)
-#else
-extension UICollectionView {
-    public typealias ScrollPosition = UICollectionViewScrollPosition
-}
-#endif
-
 /*
  ScalingCarouselView is a subclass of UICollectionView which
  is intended to be used to carousel through cells which don't
@@ -123,7 +116,7 @@ open class ScalingCarouselView: UICollectionView {
         invisibleScrollView.setContentOffset(rect.origin, animated: animated)
     }
     
-    override open func scrollToItem(at indexPath: IndexPath, at scrollPosition: ScrollPosition, animated: Bool) {
+    override open func scrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionView.ScrollPosition, animated: Bool) {
         super.scrollToItem(at: indexPath, at: scrollPosition, animated: animated)
         
         let originX = (CGFloat(indexPath.item) * (frame.size.width - (inset * 2)))

@@ -8,13 +8,6 @@
 
 import UIKit
 
-#if swift(>=4.2)
-#else
-extension UIApplication {
-    typealias LaunchOptionsKey = UIApplicationLaunchOptionsKey
-}
-#endif
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
