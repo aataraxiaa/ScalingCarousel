@@ -71,7 +71,7 @@ open class ScalingCarouselCell: UICollectionViewCell {
         let width = frame.size.width
         
         // Calculate our scale values
-        let scaleCalculator = fabs(width - fabs(originXActual))
+        let scaleCalculator = abs(width - abs(originXActual))
         let percentageScale = (scaleCalculator/width)
         
         let scaleValue = scaleMinimum
