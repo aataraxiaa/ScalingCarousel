@@ -116,7 +116,7 @@ open class ScalingCarouselView: UICollectionView {
         invisibleScrollView.setContentOffset(rect.origin, animated: animated)
     }
     
-    override open func scrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionViewScrollPosition, animated: Bool) {
+    override open func scrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionView.ScrollPosition, animated: Bool) {
         super.scrollToItem(at: indexPath, at: scrollPosition, animated: animated)
         
         let originX = (CGFloat(indexPath.item) * (frame.size.width - (inset * 2)))

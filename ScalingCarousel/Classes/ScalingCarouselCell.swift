@@ -23,11 +23,11 @@ open class ScalingCarouselCell: UICollectionViewCell {
     // MARK: - Properties (Public)
     
     /// The minimum value to scale to, should be set between 0 and 1
-    open var scaleMinimum: CGFloat = 0.9
+    open var scaleMinimum: CGFloat = 0.7
     
     /// Divisior used when calculating the scale value.
     /// Lower values cause a greater difference in scale between subsequent cells.
-    open var scaleDivisor: CGFloat = 10.0
+    open var scaleDivisor: CGFloat = 8.0
     
     /// The minimum value to alpha to, should be set between 0 and 1
     open var alphaMinimum: CGFloat = 0.85
