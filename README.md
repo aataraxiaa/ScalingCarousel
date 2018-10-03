@@ -34,13 +34,13 @@ This property is declared in ScalingCarouselCell. You should add any cell conten
 
 * Note: To ensure correct scaling of the ScalingCarouselCell, you need to call the following code after you configure your cell with it's data (e.g in `cellForItem(at:)`):
 
-```
+```swift
 cell.setNeedsLayout()
 cell.layoutIfNeeded()
 ```
 * Note: To ensure correct displayed of the ScalingCarousel, you need to call the following code in the method  `viewWillTransition(to size:, with coordinator:)` of the ViewController:
 
-```
+```swift
 super.viewWillTransition(to: size, with: coordinator)
 scalingCarousel.deviceRotated()
 ```
@@ -49,7 +49,7 @@ scalingCarousel.deviceRotated()
 
 * Create a custom UICollectionViewCell which inherits from ScalingCarouselCell. Initialize the mainView property, which is declared in ScalingCarouselCell;
 
-```
+```swift
 override init(frame: CGRect) {
   super.init(frame: frame)
 
@@ -68,7 +68,7 @@ override init(frame: CGRect) {
 
 * Create and add a ScalingCarouselView to your view, and implement the standard UICollectionViewDatasource methods in your view controller;
 
-```
+```swift
 // Create our carousel
 let scalingCarousel = ScalingCarouselView(withFrame: frame, andInset: 20)
 scalingCarousel.dataSource = self
@@ -92,13 +92,13 @@ scalingCarousel.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isAc
 
 * Note: To ensure correct scaling of the ScalingCarouselCell, you need to call the following code after you configure your cell with it's data (e.g in `cellForItem(at:)`):
 
-```
+```swift
 cell.setNeedsLayout()
 cell.layoutIfNeeded()
 ```
 * Note: To ensure correct displayed of the ScalingCarousel, you need to call the following code in the method  `viewWillTransition(to size:, with coordinator:)` of the ViewController, If you have created the ScalingCarousel by code in the viewDidLoad, It is important to verify that it exists when the method `viewWillTransition` is called or we will have a crash if we load the viewController with the device in landscape mode:
 
-```
+```swift
 super.viewWillTransition(to: size, with: coordinator)
 if scalingCarousel != nil {
     scalingCarousel.deviceRotated()
