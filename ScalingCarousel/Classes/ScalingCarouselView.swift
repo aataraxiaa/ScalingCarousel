@@ -34,6 +34,16 @@ open class ScalingCarouselView: UICollectionView {
         }
     }
     
+    public var scrollDirection: ScrollDirection = .horizontal {
+        didSet {
+            /*
+             Configure our layout, and add more
+             constraints to our invisible UIScrollView
+             */
+            configureLayout()
+        }
+    }
+    
     /// Returns the current center cell of the carousel if it can be calculated
     open var currentCenterCell: UICollectionViewCell? {
         
@@ -44,7 +54,9 @@ open class ScalingCarouselView: UICollectionView {
             
             let cellRect = convert(cell.frame, to: nil)
             
-            if cellRect.origin.x > lowerBound && cellRect.origin.x < upperBound {
+            if (scrollDirection == .horizontal && cellRect.origin.x > lowerBound && cellRect.origin.x < upperBound) ||
+                (scrollDirection == .vertical && cellRect.origin.y > lowerBound && cellRect.origin.y < upperBound)
+            {
                 return cell
             }
             
@@ -79,15 +91,18 @@ open class ScalingCarouselView: UICollectionView {
             }
             
             // Set the invisibleScrollView contentSize width based on number of items
-            let contentWidth = invisibleScrollView.frame.width * CGFloat(numberItems)
-            invisibleScrollView.contentSize = CGSize(width: contentWidth, height: invisibleScrollView.frame.height)
+            let contentWidth = invisibleScrollView.frame.width * (scrollDirection == .horizontal ? CGFloat(numberItems) : 1)
+            let contentHeight = invisibleScrollView.frame.height * (scrollDirection == .vertical ? CGFloat(numberItems) : 1)
+            invisibleScrollView.contentSize = CGSize(width: contentWidth, height: contentHeight)
         }
     }
     
     // MARK: - Properties (Private)
     fileprivate var invisibleScrollView: UIScrollView!
-    fileprivate var invisibleWidthConstraint: NSLayoutConstraint?
+    fileprivate var invisibleTopConstraint: NSLayoutConstraint?
+    fileprivate var invisibleBottomConstraint: NSLayoutConstraint?
     fileprivate var invisibleLeftConstraint: NSLayoutConstraint?
+    fileprivate var invisibleRightConstraint: NSLayoutConstraint?
     
     // MARK: - Lifecycle
     
@@ -106,7 +121,6 @@ open class ScalingCarouselView: UICollectionView {
     ///   - inset: Inset
     public convenience init(withFrame frame: CGRect, andInset inset: CGFloat) {
         self.init(frame: frame, collectionViewLayout: ScalingCarouselLayout(withCarouselInset: inset))
-        
         self.inset = inset
     }
     
@@ -119,8 +133,19 @@ open class ScalingCarouselView: UICollectionView {
     override open func scrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionView.ScrollPosition, animated: Bool) {
         super.scrollToItem(at: indexPath, at: scrollPosition, animated: animated)
         
-        let originX = (CGFloat(indexPath.item) * (frame.size.width - (inset * 2)))
-        let rect = CGRect(x: originX, y: 0, width: frame.size.width - (inset * 2), height: frame.height)
+        var originX: CGFloat = 0
+        var originY: CGFloat = 0
+        var width = frame.size.width
+        var height = frame.size.height
+        
+        if scrollDirection == .vertical {
+            originY = (CGFloat(indexPath.item) * (frame.size.height - (inset * 2)))
+            width = frame.size.width - (inset * 2)
+        } else {
+            originX = (CGFloat(indexPath.item) * (frame.size.width - (inset * 2)))
+            height = frame.size.height - (inset * 2)
+        }
+        let rect = CGRect(x: originX, y: originY, width: width, height: height)
         scrollRectToVisible(rect, animated: animated)
         lastCurrentCenterCellIndex = indexPath
     }
@@ -178,7 +203,11 @@ fileprivate extension PrivateAPI {
         invisibleScrollView = UIScrollView(frame: bounds)
         invisibleScrollView.translatesAutoresizingMaskIntoConstraints = false
         invisibleScrollView.isPagingEnabled = true
-        invisibleScrollView.showsHorizontalScrollIndicator = false
+        if scrollDirection == .vertical {
+            invisibleScrollView.showsHorizontalScrollIndicator = false
+        } else {
+            invisibleScrollView.showsVerticalScrollIndicator = false
+        }
         
         /*
          Disable user interaction on the 'invisible' scrollview,
@@ -202,13 +231,6 @@ fileprivate extension PrivateAPI {
         superview.addSubview(invisibleScrollView)
         
         /*
-         Add constraints for height and top, relative to the
-         ScalingCarouselView
-        */
-        invisibleScrollView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
-        invisibleScrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        
-        /*
          Further configure our layout and add more constraints
          for width and left position
         */
@@ -219,30 +241,36 @@ fileprivate extension PrivateAPI {
         
         // Create a ScalingCarouselLayout using our inset
         collectionViewLayout = ScalingCarouselLayout(
-            withCarouselInset: inset)
+            withCarouselInset: inset, andScrollDirection: scrollDirection)
         
         /*
          Only continue if we have a reference to
          our 'invisible' UIScrollView
         */
         guard let invisibleScrollView = invisibleScrollView else { return }
-    
+        
         // Remove constraints if they already exist
-        invisibleWidthConstraint?.isActive = false
+        invisibleTopConstraint?.isActive = false
+        invisibleBottomConstraint?.isActive = false
         invisibleLeftConstraint?.isActive = false
+        invisibleRightConstraint?.isActive = false
         
         /* 
          Add constrants for width and left postion 
          to our 'invisible' UIScrollView
         */
-        invisibleWidthConstraint = invisibleScrollView.widthAnchor.constraint(
-            equalTo: widthAnchor, constant: -(2 * inset))
-        invisibleLeftConstraint =  invisibleScrollView.leftAnchor.constraint(
-            equalTo: leftAnchor, constant: inset)
+        invisibleTopConstraint = invisibleScrollView.topAnchor.constraint(equalTo: topAnchor, constant: scrollDirection == .vertical ? inset : 0)
+        invisibleBottomConstraint = bottomAnchor.constraint(equalTo: invisibleScrollView.bottomAnchor, constant: scrollDirection == .vertical ? inset : 0)
+        invisibleLeftConstraint =  invisibleScrollView.leftAnchor.constraint(equalTo: leftAnchor, constant: scrollDirection == .horizontal ? inset : 0)
+        invisibleRightConstraint =  rightAnchor.constraint(equalTo: invisibleScrollView.rightAnchor, constant: scrollDirection == .horizontal ? inset : 0)
         
         // Activate the constraints
-        invisibleWidthConstraint?.isActive = true
+        invisibleTopConstraint?.isActive = true
+        invisibleBottomConstraint?.isActive = true
         invisibleLeftConstraint?.isActive = true
+        invisibleRightConstraint?.isActive = true
+        
+        self.layoutSubviews()
     }
 }
 
@@ -263,7 +291,7 @@ extension InvisibleScrollDelegate: UIScrollViewDelegate {
         // Also, this is where we scale our cells
         for cell in visibleCells {
             if let infoCardCell = cell as? ScalingCarouselCell {
-                infoCardCell.scale(withCarouselInset: inset)
+                infoCardCell.scale(withCarouselInset: inset, andScrollDirection: scrollDirection)
             }
         }
     }

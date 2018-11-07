@@ -56,7 +56,7 @@ open class ScalingCarouselCell: UICollectionViewCell {
     /// Scale the cell when it is scrolled
     ///
     /// - parameter carouselInset: The inset of the related SPBCarousel view
-    open func scale(withCarouselInset carouselInset: CGFloat) {
+    open func scale(withCarouselInset carouselInset: CGFloat, andScrollDirection scrollDirection: UICollectionView.ScrollDirection = .horizontal) {
         
         // Ensure we have a superView, and mainView
         guard let superview = superview,
@@ -64,15 +64,22 @@ open class ScalingCarouselCell: UICollectionViewCell {
         
         // Get our absolute origin value
         let originX = superview.convert(frame, to: superview.superview).origin.x
+        let originY = superview.convert(frame, to: superview.superview).origin.y
         
         // Calculate our actual origin.x value using our inset
-        let originXActual = originX - carouselInset
-        
+        var originXActual = originX
+        var originYActual = originY
+        if scrollDirection == .horizontal {
+            originXActual -= carouselInset
+        } else {
+            originYActual -= carouselInset
+        }
         let width = frame.size.width
+        let height = frame.size.height
         
         // Calculate our scale values
-        let scaleCalculator = abs(width - abs(originXActual))
-        let percentageScale = (scaleCalculator/width)
+        let scaleCalculator = scrollDirection == .horizontal ? abs(width - abs(originXActual)) : abs(height - abs(originYActual))
+        let percentageScale = scrollDirection == .horizontal ? (scaleCalculator/width) : (scaleCalculator/height)
         
         let scaleValue = scaleMinimum
             + (percentageScale/scaleDivisor)

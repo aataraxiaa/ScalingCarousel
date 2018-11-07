@@ -24,28 +24,32 @@ open class ScalingCarouselLayout: UICollectionViewFlowLayout {
     /// - parameter inset: The carousel inset
     ///
     /// - returns: A new carousel layout instance
-    convenience init(withCarouselInset inset: CGFloat = 0.0) {
+    convenience init(withCarouselInset inset: CGFloat = 0, andScrollDirection direction: UICollectionView.ScrollDirection = .horizontal) {
         self.init()
         self.inset = inset
+        self.scrollDirection = direction
     }
     
     override open func prepare() {
         
         guard let collectionViewSize = collectionView?.frame.size else { return }
         
+        // Set paging
+        collectionView?.isPagingEnabled = true
+        
         // Set itemSize based on total width and inset
         itemSize = collectionViewSize
-        itemSize.width = itemSize.width - (inset * 2)
-        
-        // Set scrollDirection and paging
-        scrollDirection = .horizontal
-        collectionView?.isPagingEnabled = true
+        if scrollDirection == .horizontal {
+            itemSize.width = itemSize.width - (inset * 2)
+        } else {
+            itemSize.height = itemSize.height - (inset * 2)
+        }
         
         minimumLineSpacing = 0.0
         minimumInteritemSpacing = 0.0
         
-        sectionInset = UIEdgeInsets(top: 0.0, left: inset, bottom: 0.0, right: inset)
-        footerReferenceSize = CGSize.zero
-        headerReferenceSize = CGSize.zero
+        sectionInset = UIEdgeInsets(top: scrollDirection == .vertical ? inset : 0, left: scrollDirection == .horizontal ? inset : 0, bottom: scrollDirection == .vertical ? inset : 0, right: scrollDirection == .horizontal ? inset : 0)
+        footerReferenceSize = .zero
+        headerReferenceSize = .zero
     }
 }
