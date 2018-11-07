@@ -44,7 +44,7 @@ open class ScalingCarouselCell: UICollectionViewCell {
         
         guard let carouselView = superview as? ScalingCarouselView else { return }
         
-        scale(withCarouselInset: carouselView.inset)
+        scale(withCarouselInset: carouselView.inset, andScrollDirection: carouselView.scrollDirection)
     }
     
     override open func prepareForReuse() {

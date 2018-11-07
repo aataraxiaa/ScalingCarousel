@@ -18,7 +18,6 @@ open class ScalingCarouselLayout: UICollectionViewFlowLayout {
 
     open var inset: CGFloat = 0.0
     
-    
     /// Initialize a new carousel-style layout
     ///
     /// - parameter inset: The carousel inset
