@@ -108,7 +108,7 @@ if scalingCarousel != nil {
 
 ## Orientation
 
-To change the orientation from a horizontally scrolling view to vertical scrolling just set the `scrollDirection` property to `.vertical` in your viewDidLoad function. the default is `.horizontal`
+To change the orientation from a horizontally scrolling view to vertical scrolling just set the `scrollDirection` property to `.vertical` in your viewDidLoad function. the default is `.horizontal`. Do not use the layout's 
 
 ## Example
 
