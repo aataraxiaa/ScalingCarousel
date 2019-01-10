@@ -39,13 +39,13 @@ open class ScalingCarouselLayout: UICollectionViewFlowLayout {
         // Set itemSize based on total width and inset
         itemSize = collectionViewSize
         if scrollDirection == .horizontal {
-            itemSize.width = itemSize.width - (inset * 2)
+            itemSize.width -= inset * 2
         } else {
-            itemSize.height = itemSize.height - (inset * 2)
+            itemSize.height -= inset * 2
         }
         
-        minimumLineSpacing = 0.0
-        minimumInteritemSpacing = 0.0
+        minimumLineSpacing = 0
+        minimumInteritemSpacing = 0
         
         sectionInset = UIEdgeInsets(top: scrollDirection == .vertical ? inset : 0, left: scrollDirection == .horizontal ? inset : 0, bottom: scrollDirection == .vertical ? inset : 0, right: scrollDirection == .horizontal ? inset : 0)
         footerReferenceSize = .zero

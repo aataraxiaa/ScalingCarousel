@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BY5-bO-M1j">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BY5-bO-M1j">
+    <device id="ipad10_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,21 +15,13 @@
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="StoryboardViewController" customModule="ScalingCarousel_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mq8-SH-Mx8" customClass="ScalingCarouselView" customModule="ScalingCarousel">
-                                <rect key="frame" x="0.0" y="353" width="375" height="250"/>
+                                <rect key="frame" x="0.0" y="171.5" width="1112" height="612.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="9nX-Ku-j46"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BKc-yN-cAB">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
+                                <collectionViewLayout key="collectionViewLayout" id="dY4-Ot-gOB" customClass="ScalingCarouselLayout" customModule="ScalingCarousel"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="zd6-fE-JFf" customClass="Cell" customModule="ScalingCarousel_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -39,7 +31,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RJs-7r-dhV">
-                                                    <rect key="frame" x="-0.5" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
@@ -66,27 +58,37 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAz-De-GJ8">
-                                <rect key="frame" x="150" y="105" width="74" height="30"/>
+                                <rect key="frame" x="519" y="105" width="74" height="30"/>
                                 <state key="normal" title="Show/Hide"/>
                                 <connections>
                                     <action selector="showHideButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Jsy-vc-cWp"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYO-rO-XuZ">
-                                <rect key="frame" x="187" y="143" width="0.0" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYO-rO-XuZ">
+                                <rect key="frame" x="551" y="143" width="10.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hmg-5p-31y">
+                                <rect key="frame" x="492.5" y="67" width="127" height="30"/>
+                                <state key="normal" title="Switch Orientation"/>
+                                <connections>
+                                    <action selector="orientationButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xjj-Wf-INX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Mq8-SH-Mx8" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="4Ux-ib-2uZ"/>
                             <constraint firstItem="UYO-rO-XuZ" firstAttribute="centerX" secondItem="KAz-De-GJ8" secondAttribute="centerX" id="8U2-jX-Aw6"/>
+                            <constraint firstItem="Mq8-SH-Mx8" firstAttribute="trailing" secondItem="6xk-R0-sgg" secondAttribute="trailing" id="CXD-aG-Ynj"/>
                             <constraint firstItem="KAz-De-GJ8" firstAttribute="top" secondItem="6xk-R0-sgg" secondAttribute="top" constant="85" id="Ffh-uk-Qnl"/>
-                            <constraint firstItem="6xk-R0-sgg" firstAttribute="bottom" secondItem="Mq8-SH-Mx8" secondAttribute="bottom" constant="15" id="Kee-s5-jSC"/>
+                            <constraint firstItem="Mq8-SH-Mx8" firstAttribute="top" secondItem="UYO-rO-XuZ" secondAttribute="bottom" constant="8" id="Hya-yG-MUc"/>
+                            <constraint firstItem="6xk-R0-sgg" firstAttribute="bottom" secondItem="Mq8-SH-Mx8" secondAttribute="bottom" id="Kee-s5-jSC"/>
                             <constraint firstItem="KAz-De-GJ8" firstAttribute="centerX" secondItem="6xk-R0-sgg" secondAttribute="centerX" id="M5E-lE-5Pp"/>
+                            <constraint firstItem="KAz-De-GJ8" firstAttribute="top" secondItem="Hmg-5p-31y" secondAttribute="bottom" constant="8" id="Mqs-dW-BeU"/>
                             <constraint firstItem="Mq8-SH-Mx8" firstAttribute="leading" secondItem="6xk-R0-sgg" secondAttribute="leading" id="NPp-qY-rgM"/>
+                            <constraint firstItem="Hmg-5p-31y" firstAttribute="centerX" secondItem="KAz-De-GJ8" secondAttribute="centerX" id="mGe-kT-Zrd"/>
                             <constraint firstItem="UYO-rO-XuZ" firstAttribute="top" secondItem="KAz-De-GJ8" secondAttribute="bottom" constant="8" id="nfn-SZ-h6K"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6xk-R0-sgg"/>
@@ -95,6 +97,7 @@
                     <connections>
                         <outlet property="carousel" destination="Mq8-SH-Mx8" id="PYK-cv-2wb"/>
                         <outlet property="carouselBottomConstraint" destination="Kee-s5-jSC" id="HnZ-jP-gpN"/>
+                        <outlet property="carouselTopConstraint" destination="Hya-yG-MUc" id="RiM-ra-Mne"/>
                         <outlet property="output" destination="UYO-rO-XuZ" id="v8Z-xt-lyT"/>
                     </connections>
                 </viewController>
@@ -125,7 +128,7 @@
             <objects>
                 <viewController id="GQ1-V2-c06" customClass="CodeViewController" customModule="ScalingCarousel_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eKu-Eq-cui">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="vm8-mu-b8r"/>

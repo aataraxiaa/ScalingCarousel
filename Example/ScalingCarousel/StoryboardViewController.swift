@@ -18,17 +18,19 @@ class StoryboardViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var carousel: ScalingCarouselView!
     @IBOutlet weak var carouselBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var carouselTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var output: UILabel!
     
     private struct Constants {
-        static let carouselHideConstant: CGFloat = -250
-        static let carouselShowConstant: CGFloat = 15
+        static let carouselShowConstant: CGFloat = 0
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        carouselBottomConstraint.constant = Constants.carouselHideConstant
+        carouselBottomConstraint.constant = -carousel.frame.height
+        carouselTopConstraint.constant = carousel.frame.height + 8
+        carousel.scrollDirection = .vertical
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -39,8 +41,16 @@ class StoryboardViewController: UIViewController {
     
     @IBAction func showHideButtonPressed(_ sender: Any) {
         
-        carouselBottomConstraint.constant = (carouselBottomConstraint.constant == Constants.carouselShowConstant ? Constants.carouselHideConstant : Constants.carouselShowConstant)
+        carouselTopConstraint.constant = (carouselBottomConstraint.constant == Constants.carouselShowConstant ? carousel.frame.height + 8 : 8)
+        carouselBottomConstraint.constant = (carouselBottomConstraint.constant == Constants.carouselShowConstant ? -carousel.frame.height : Constants.carouselShowConstant)
         
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    @IBAction func orientationButtonPressed(_ sender: Any) {
+        carousel.scrollDirection = carousel.scrollDirection == .horizontal ? .vertical : .horizontal
         UIView.animate(withDuration: 0.5, animations: {
             self.view.layoutIfNeeded()
         })
