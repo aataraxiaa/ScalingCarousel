@@ -166,6 +166,14 @@ open class ScalingCarouselView: UICollectionView {
             self.didScroll()
         }
     }
+
+    /*
+     This method should ALWAYS be called from the ScalingCarousel delegate when you want to
+     disable the invisible scroller.
+    */
+    public func toggleInvisibleScrolling(_ toggle: Bool) {
+        self.invisibleScrollView.isScrollEnabled = toggle
+    }
 }
 
 private typealias PrivateAPI = ScalingCarouselView
