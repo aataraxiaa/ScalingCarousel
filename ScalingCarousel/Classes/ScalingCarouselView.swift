@@ -46,20 +46,19 @@ open class ScalingCarouselView: UICollectionView {
     
     /// Returns the current center cell of the carousel if it can be calculated
     open var currentCenterCell: UICollectionViewCell? {
-        
         let lowerBound = inset - 20
         let upperBound = inset + 20
         
-        for cell in visibleCells {
-            
-            let cellRect = convert(cell.frame, to: nil)
-            
-            if (scrollDirection == .horizontal && cellRect.origin.x > lowerBound && cellRect.origin.x < upperBound) ||
-                (scrollDirection == .vertical && cellRect.origin.y > lowerBound && cellRect.origin.y < upperBound)
-            {
-                return cell
+        for cellIndexPath in indexPathsForVisibleItems {
+            if let layoutAttributes = layoutAttributesForItem(at: cellIndexPath) {
+                // we need this conversion if the view does not cover the full screen
+                let cellRect = convert(layoutAttributes.frame, to: superview)
+                if (scrollDirection == .horizontal && cellRect.origin.x > (lowerBound + self.frame.origin.x) && cellRect.origin.x < (upperBound + self.frame.origin.x)) ||
+                    (scrollDirection == .vertical && cellRect.origin.y > (lowerBound + self.frame.origin.y)  && cellRect.origin.y < (upperBound + self.frame.origin.y))
+                {
+                    return cellForItem(at: cellIndexPath)
+                }
             }
-            
         }
         
         return nil
