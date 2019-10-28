@@ -25,7 +25,8 @@ It is used in Bikey to present bike station information.
   s.source           = { :git => 'https://github.com/superpeteblaze/ScalingCarousel.git', :tag => "v#{s.version.to_s}" }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '9.3'
+  s.swift_version = '5'
 
   s.source_files = 'ScalingCarousel/Classes/**/*'
 end
