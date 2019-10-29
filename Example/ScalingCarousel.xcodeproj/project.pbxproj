@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A58575A2361F41C007672B0 /* ScalingCarousel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5857592361F41C007672B0 /* ScalingCarousel_Tests.swift */; };
-		12C04D219949AFC9FF3CC0A5 /* Pods_ScalingCarousel_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B5BA65FCAD75DAB10B57A9 /* Pods_ScalingCarousel_Tests.framework */; };
 		371D5443D4C13439BA9B90F3 /* Pods_ScalingCarousel_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 458709EF51094BC6F4D04000 /* Pods_ScalingCarousel_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* StoryboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* StoryboardViewController.swift */; };
@@ -19,20 +17,7 @@
 		65E99FA11E1519D50026BEC4 /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E99FA01E1519D50026BEC4 /* CodeViewController.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		0A58575C2361F41C007672B0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
-			remoteInfo = ScalingCarousel_Example;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		0A5857572361F41C007672B0 /* ScalingCarousel_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScalingCarousel_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A5857592361F41C007672B0 /* ScalingCarousel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalingCarousel_Tests.swift; sourceTree = "<group>"; };
-		0A58575B2361F41C007672B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AC39C6CC3E82205FC41C768 /* Pods-ScalingCarousel_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScalingCarousel_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScalingCarousel_Tests/Pods-ScalingCarousel_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		2CDA8F1B0A30ECE4574BBC6B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		458709EF51094BC6F4D04000 /* Pods_ScalingCarousel_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScalingCarousel_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,14 +41,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0A5857542361F41C007672B0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				12C04D219949AFC9FF3CC0A5 /* Pods_ScalingCarousel_Tests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		607FACCD1AFB9204008FA782 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -75,15 +52,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A5857582361F41C007672B0 /* ScalingCarousel_Tests */ = {
-			isa = PBXGroup;
-			children = (
-				0A5857592361F41C007672B0 /* ScalingCarousel_Tests.swift */,
-				0A58575B2361F41C007672B0 /* Info.plist */,
-			);
-			path = ScalingCarousel_Tests;
-			sourceTree = "<group>";
-		};
 		3FA1F2A62E4ADD293B1EF2D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,7 +68,6 @@
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example */,
 				659A02AB202F775500587C36 /* ScalingCarousel */,
-				0A5857582361F41C007672B0 /* ScalingCarousel_Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				AB4C669AD33FFC8D61F2C71C /* Pods */,
 				3FA1F2A62E4ADD293B1EF2D3 /* Frameworks */,
@@ -111,7 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* ScalingCarousel_Example.app */,
-				0A5857572361F41C007672B0 /* ScalingCarousel_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -204,25 +170,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0A5857562361F41C007672B0 /* ScalingCarousel_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0A5857602361F41C007672B0 /* Build configuration list for PBXNativeTarget "ScalingCarousel_Tests" */;
-			buildPhases = (
-				90F12E81B2690D36476C764B /* [CP] Check Pods Manifest.lock */,
-				0A5857532361F41C007672B0 /* Sources */,
-				0A5857542361F41C007672B0 /* Frameworks */,
-				0A5857552361F41C007672B0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0A58575D2361F41C007672B0 /* PBXTargetDependency */,
-			);
-			name = ScalingCarousel_Tests;
-			productName = ScalingCarousel_Tests;
-			productReference = 0A5857572361F41C007672B0 /* ScalingCarousel_Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		607FACCF1AFB9204008FA782 /* ScalingCarousel_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ScalingCarousel_Example" */;
@@ -248,19 +195,14 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1030;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
-					0A5857562361F41C007672B0 = {
-						CreatedOnToolsVersion = 10.3;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 607FACCF1AFB9204008FA782;
-					};
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 49CJ89TL4W;
-						LastSwiftMigration = 1030;
+						LastSwiftMigration = 1110;
 					};
 				};
 			};
@@ -279,19 +221,11 @@
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* ScalingCarousel_Example */,
-				0A5857562361F41C007672B0 /* ScalingCarousel_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0A5857552361F41C007672B0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		607FACCE1AFB9204008FA782 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -306,28 +240,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		90F12E81B2690D36476C764B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ScalingCarousel_Tests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		BA663BC8D55C4A023C2ED9E6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -367,14 +279,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0A5857532361F41C007672B0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0A58575A2361F41C007672B0 /* ScalingCarousel_Tests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		607FACCC1AFB9204008FA782 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -386,14 +290,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		0A58575D2361F41C007672B0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 607FACCF1AFB9204008FA782 /* ScalingCarousel_Example */;
-			targetProxy = 0A58575C2361F41C007672B0 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
@@ -415,69 +311,9 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0A58575E2361F41C007672B0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA63361010B0F437C40DBABF /* Pods-ScalingCarousel_Tests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = "";
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ScalingCarousel_Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "superpeteblaze.ScalingCarousel-Tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScalingCarousel_Example.app/ScalingCarousel_Example";
-			};
-			name = Debug;
-		};
-		0A58575F2361F41C007672B0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2AC39C6CC3E82205FC41C768 /* Pods-ScalingCarousel_Tests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ScalingCarousel_Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "superpeteblaze.ScalingCarousel-Tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScalingCarousel_Example.app/ScalingCarousel_Example";
-			};
-			name = Release;
-		};
 		607FACED1AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -522,7 +358,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -533,7 +369,6 @@
 		607FACEE1AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -571,7 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -583,12 +418,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 54ACDAF6D64CCC3389CF9744 /* Pods-ScalingCarousel_Example.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 49CJ89TL4W;
 				INFOPLIST_FILE = ScalingCarousel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 3;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -600,12 +437,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C076B0D8341FA770E7E1424B /* Pods-ScalingCarousel_Example.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 49CJ89TL4W;
 				INFOPLIST_FILE = ScalingCarousel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 3;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -616,15 +455,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0A5857602361F41C007672B0 /* Build configuration list for PBXNativeTarget "ScalingCarousel_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0A58575E2361F41C007672B0 /* Debug */,
-				0A58575F2361F41C007672B0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "ScalingCarousel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

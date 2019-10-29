@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ScalingCarousel'
-  s.version          = '2.4.1'
+  s.version          = '3'
   s.summary          = 'A super simple carousel view with scaling transitions written in Swift'
 
   s.description      = <<-DESC
@@ -25,7 +25,7 @@ It is used in Bikey to present bike station information.
   s.source           = { :git => 'https://github.com/superpeteblaze/ScalingCarousel.git', :tag => "v#{s.version.to_s}" }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.3'
+  s.ios.deployment_target = '10.0'
   s.swift_version = '5'
 
   s.source_files = 'ScalingCarousel/Classes/**/*'
