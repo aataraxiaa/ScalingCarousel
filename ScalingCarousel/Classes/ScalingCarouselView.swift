@@ -171,7 +171,7 @@ open class ScalingCarouselView: UICollectionView {
 private typealias PrivateAPI = ScalingCarouselView
 fileprivate extension PrivateAPI {
     
-    fileprivate func addInvisibleScrollView(to superview: UIView?) {
+    func addInvisibleScrollView(to superview: UIView?) {
         guard let superview = superview else { return }
         
         /// Add our 'invisible' scrollview
@@ -215,7 +215,7 @@ fileprivate extension PrivateAPI {
         configureLayout()
     }
     
-    fileprivate func configureLayout() {
+    func configureLayout() {
         
         // Create a ScalingCarouselLayout using our inset
         collectionViewLayout = ScalingCarouselLayout(
