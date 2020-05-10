@@ -243,6 +243,11 @@ fileprivate extension PrivateAPI {
         // Activate the constraints
         invisibleWidthConstraint?.isActive = true
         invisibleLeftConstraint?.isActive = true
+        
+        
+        // To avoid carousel moving when cell is tapped
+        isPagingEnabled = true
+        isScrollEnabled = false
     }
 }
 
