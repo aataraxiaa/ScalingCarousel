@@ -32,6 +32,9 @@ open class ScalingCarouselCell: UICollectionViewCell {
     /// The minimum value to alpha to, should be set between 0 and 1
     open var alphaMinimum: CGFloat = 0.85
     
+    /// The corner radius value of the cell's main view
+    open var cornerRadius: CGFloat = 20.0
+    
     // MARK: - IBOutlets
     
     // This property should be connected to the main cell subview
@@ -87,6 +90,6 @@ open class ScalingCarouselCell: UICollectionViewCell {
         mainView.alpha = alphaValue
         
         // ..also..round the corners
-        mainView.layer.cornerRadius = 20
+        mainView.layer.cornerRadius = cornerRadius
     }
 }

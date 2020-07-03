@@ -57,8 +57,10 @@ extension CarouselDatasource: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         
+        
         if let scalingCell = cell as? ScalingCarouselCell {
             scalingCell.mainView.backgroundColor = .red
+            scalingCell.cornerRadius = 40
         }
 
         DispatchQueue.main.async {
