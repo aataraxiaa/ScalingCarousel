@@ -44,7 +44,7 @@ open class ScalingCarouselView: UICollectionView {
             
             let cellRect = convert(cell.frame, to: nil)
             
-            if cellRect.origin.x > lowerBound && cellRect.origin.x < upperBound {
+            if cellRect.origin.x >= lowerBound && cellRect.origin.x <= upperBound {
                 return cell
             }
             
