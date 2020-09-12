@@ -61,6 +61,7 @@ class CodeViewController: UIViewController {
         
         let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         scalingCarousel = ScalingCarouselView(withFrame: frame, andInset: 20)
+        scalingCarousel.scrollDirection = .vertical
         scalingCarousel.dataSource = self
         scalingCarousel.delegate = self
         scalingCarousel.translatesAutoresizingMaskIntoConstraints = false
