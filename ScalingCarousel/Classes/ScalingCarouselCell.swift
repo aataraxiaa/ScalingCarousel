@@ -65,17 +65,21 @@ open class ScalingCarouselCell: UICollectionViewCell {
         guard let superview = superview,
             let mainView = mainView else { return }
         
-        // Get our absolute origin value
-        let originX = superview.convert(frame, to: superview.superview).origin.x
+        // Get our absolute origin value and width/height based on the scroll direction
+        var origin = superview.convert(frame, to: superview.superview).origin.x
+        var contentWidthOrHeight = frame.size.width
+        if let collectionView = superview as? ScalingCarouselView, collectionView.scrollDirection == .vertical {
+            origin = superview.convert(frame, to: superview.superview).origin.y
+            contentWidthOrHeight = frame.size.height
+        }
         
         // Calculate our actual origin.x value using our inset
-        let originXActual = originX - carouselInset
+        let originActual = origin - carouselInset
         
-        let width = frame.size.width
         
         // Calculate our scale values
-        let scaleCalculator = abs(width - abs(originXActual))
-        let percentageScale = (scaleCalculator/width)
+        let scaleCalculator = abs(contentWidthOrHeight - abs(originActual))
+        let percentageScale = (scaleCalculator/contentWidthOrHeight)
         
         let scaleValue = scaleMinimum
             + (percentageScale/scaleDivisor)
