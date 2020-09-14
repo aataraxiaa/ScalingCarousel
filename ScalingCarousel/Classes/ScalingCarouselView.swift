@@ -20,8 +20,10 @@ open class ScalingCarouselView: UICollectionView {
     // MARK: - Properties (Private)
 
     private var lastCurrentCenterCellIndex: IndexPath?
-    public var scrollDirection: UICollectionView.ScrollDirection = .horizontal
+    
     // MARK: - Properties (Public)
+    
+    open var scrollDirection: UICollectionView.ScrollDirection = .horizontal
     
     /// Inset of the main, center cell
     @IBInspectable public var inset: CGFloat = 0.0 {
@@ -193,6 +195,7 @@ fileprivate extension PrivateAPI {
         invisibleScrollView.translatesAutoresizingMaskIntoConstraints = false
         invisibleScrollView.isPagingEnabled = true
         invisibleScrollView.showsHorizontalScrollIndicator = false
+        invisibleScrollView.showsVerticalScrollIndicator = false
         
         /*
          Disable user interaction on the 'invisible' scrollview,
