@@ -12,5 +12,4 @@ before_install:
 script:
 - set -o pipefail && xcodebuild -workspace Example/ScalingCarousel.xcworkspace -scheme ScalingCarousel-Example -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=13.0,name=iPhone 11' ONLY_ACTIVE_ARCH=NO | xcpretty
 - pod lib lint
-- swift build
-- swift test
+- swift build -Xswiftc "-sdk" -Xswiftc "`xcrun --sdk iphonesimulator --show-sdk-path`" -Xswiftc "-target" -Xswiftc "x86_64-apple-ios13.0-simulator"
