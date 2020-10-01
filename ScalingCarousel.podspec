@@ -28,5 +28,5 @@ It is used in Bikey to present bike station information.
   s.ios.deployment_target = '10.0'
   s.swift_version = '5'
 
-  s.source_files = 'ScalingCarousel/Classes/**/*'
+  s.source_files = 'Sources/ScalingCarousel/**/*'
 end
