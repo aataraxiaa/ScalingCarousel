@@ -117,7 +117,7 @@ iOS 10
 
 ## Installation
 
-ScalingCarousel is available through [CocoaPods](http://cocoapods.org), [Carthage](https://github.com/Carthage/Carthage) and [Swift Package Manager](https://swift.org/package-manager/). 
+ScalingCarousel is available through [CocoaPods](http://cocoapods.org), [Carthage](https://github.com/Carthage/Carthage) and [Swift Package Manager](https://swift.org/package-manager/).
 
 To install via Cocoapods, add the following line to your Podfile:
 
@@ -133,12 +133,12 @@ github "superpeteblaze/ScalingCarousel"
 
 To install via Swift package manager:
 
-> Note: Instructions below are for using **SwiftPM** without the Xcode UI. It's the easiest to go to your Project Settings -> Swift Packages and add Moya from there.
+> Note: Instructions below are for using **SwiftPM** without the Xcode UI. It's the easiest to go to your Project Settings -> Swift Packages and add ScalingCarousel from there.
 
 To integrate using Apple's Swift package manager, without Xcode integration, add the following as a dependency to your `Package.swift`:
 
 ```swift
-.package(url: "https://github.com/superpeteblaze/ScalingCarousel.git", .upToNextMajor(from: "3.1.1"))
+.package(url: "https://github.com/superpeteblaze/ScalingCarousel.git", .upToNextMajor(from: "3.2.0"))
 ```
 ## Author
 
