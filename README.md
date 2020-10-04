@@ -5,6 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/ScalingCarousel.svg?style=flat)](http://cocoapods.org/pods/ScalingCarousel)
 [![Platform](https://img.shields.io/cocoapods/p/ScalingCarousel.svg?style=flat)](http://cocoapods.org/pods/ScalingCarousel)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 
 ScalingCarousel provides a simple carousel-style collection view.
 It takes care of cell presentation, scaling each cell as the collection view is scrolled.
@@ -116,7 +117,7 @@ iOS 10
 
 ## Installation
 
-ScalingCarousel is available through [CocoaPods](http://cocoapods.org) and [Carthage](https://github.com/Carthage/Carthage). 
+ScalingCarousel is available through [CocoaPods](http://cocoapods.org), [Carthage](https://github.com/Carthage/Carthage) and [Swift Package Manager](https://swift.org/package-manager/). 
 
 To install via Cocoapods, add the following line to your Podfile:
 
@@ -130,6 +131,15 @@ To install via Carthage, add the following line to your Podfile:
 github "superpeteblaze/ScalingCarousel"
 ```
 
+To install via Swift package manager:
+
+> Note: Instructions below are for using **SwiftPM** without the Xcode UI. It's the easiest to go to your Project Settings -> Swift Packages and add Moya from there.
+
+To integrate using Apple's Swift package manager, without Xcode integration, add the following as a dependency to your `Package.swift`:
+
+```swift
+.package(url: "https://github.com/superpeteblaze/ScalingCarousel.git", .upToNextMajor(from: "3.1.1"))
+```
 ## Author
 
 Pete Smith, peadar81@gmail.com
