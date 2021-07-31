@@ -52,8 +52,8 @@ open class ScalingCarouselCell: UICollectionViewCell {
     
     override open func prepareForReuse() {
         super.prepareForReuse()
-        mainView.transform = CGAffineTransform.identity
-        mainView.alpha = 1.0
+        mainView?.transform = CGAffineTransform.identity
+        mainView?.alpha = 1.0
     }
     
     /// Scale the cell when it is scrolled
