@@ -97,7 +97,10 @@ open class ScalingCarouselView: UICollectionView {
     fileprivate var invisibleScrollView: UIScrollView!
     fileprivate var invisibleWidthOrHeightConstraint: NSLayoutConstraint?
     fileprivate var invisibleLeftOrTopConstraint: NSLayoutConstraint?
-    
+	private var isRightToLeft: Bool {
+		UIView.userInterfaceLayoutDirection(for: semanticContentAttribute) == .rightToLeft
+	}
+	
     // MARK: - Lifecycle
     
     override public init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -206,6 +209,11 @@ fileprivate extension PrivateAPI {
         /// Set the scroll delegate to be the ScalingCarouselView
         invisibleScrollView.delegate = self
         
+        /// flip scroll in case of right to left direction so drag is not in reversed to the collectionView
+        if isRightToLeft {  //without this drag works in reverse direction
+            invisibleScrollView.transform = CGAffineTransform(scaleX: -1, y: 1)
+        }
+        
         /*
          Now add the invisible scrollview's pan
          gesture recognizer to the ScalingCarouselView
@@ -304,6 +312,12 @@ extension InvisibleScrollDelegate: UIScrollViewDelegate {
     }
     
     private func updateOffSet() {
-        contentOffset = invisibleScrollView.contentOffset
+        /// without this check collection view appears scrolled to the end in right to left direction case
+        guard invisibleScrollView.contentSize != .zero else { return }
+		contentOffset = adjusted(contentOffset: invisibleScrollView.contentOffset)
+        /// If right to left direction active - collection view respects that but scroll view does not. So transforming contentOffset.x
+		func adjusted(contentOffset: CGPoint) -> CGPoint {
+			!isRightToLeft ? contentOffset : CGPoint(x: invisibleScrollView.contentSize.width - contentOffset.x - invisibleScrollView.frame.width, y: contentOffset.y)
+		}
     }
 }
